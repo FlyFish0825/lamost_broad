@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PCB 连接关系编辑器 - 全画幅双视图专业版</title>
+    <title>PCB 连接关系编辑器 - 智能编号版</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -35,7 +35,6 @@
 
         .main-container { display: flex; height: calc(100vh - 50px); margin-top: 50px; }
 
-        /* 左右两侧平分天下，都是纯净的画布容器 */
         .left-panel { flex: 1; border-right: 2px solid #2c3e50; background: #11141a; position: relative; overflow: hidden; cursor: grab; }
         .right-panel { flex: 1; background: #1e2532; position: relative; overflow: hidden; cursor: grab; }
         
@@ -135,10 +134,16 @@
                 let gapStart = G > 0 ? centerX - (G - 1) / 2 : -1;
                 let gapEnd = G > 0 ? centerX + (G - 1) / 2 : -1;
 
+                let holeCount = 1; // 当前行的孔位计数器
+                let rowNum = r + 1; // 实际行号(1-based)
+
                 for(let c = startCol; c <= endCol; c++) {
                     if (G > 0 && c >= gapStart && c <= gapEnd) continue;
-                    let id = `${c}_${r}`;
+                    
+                    // ID 格式改为：行号_该行第N个孔
+                    let id = `${rowNum}_${holeCount}`;
                     units[id] = { col: c, row: r, connected: false };
+                    holeCount++;
                 }
             }
         }
@@ -234,12 +239,10 @@
         
         const CELL_SIZE = 12, CELL_GAP = 6;
         
-        // 双侧相机矩阵
         let leftCam = { x: 0, y: 0, scale: 1 };
         let rightCam = { x: 0, y: 0, scale: 1 };
 
         function resizeCanvas() {
-            // 左侧适配 (居中全览初始视角)
             canvasL.width = canvasL.parentElement.clientWidth;
             canvasL.height = canvasL.parentElement.clientHeight;
             
@@ -251,7 +254,6 @@
             leftCam.x = (canvasL.width - gridWidth * leftCam.scale) / 2;
             leftCam.y = (canvasL.height - gridHeight * leftCam.scale) / 2;
 
-            // 右侧适配 (居中全览初始视角)
             canvasR.width = canvasR.parentElement.clientWidth;
             canvasR.height = canvasR.parentElement.clientHeight;
             
@@ -264,15 +266,13 @@
             rightCam.y = (canvasR.height - totalHeight * rightCam.scale) / 2;
         }
 
-        // ==================== 渲染左侧基板 (带镜头矩阵) ====================
+        // ==================== 渲染左侧基板 ====================
         function renderLeftCanvas() {
             ctxL.clearRect(0, 0, canvasL.width, canvasL.height);
             ctxL.save();
             ctxL.translate(leftCam.x, leftCam.y);
             ctxL.scale(leftCam.scale, leftCam.scale);
 
-            // 注意：因为引入了相机缩放，这里不再需要全局 offsetX/offsetY，从0,0开始画网格
-            
             ctxL.fillStyle = '#48c9b0';
             ctxL.globalAlpha = 0.15;
             ctxL.beginPath();
@@ -318,6 +318,7 @@
 
             for (const unitId in units) {
                 const u = units[unitId];
+                // 物理坐标依旧使用真实的网格 row 和 col 进行渲染
                 const cx = u.col * (CELL_SIZE + CELL_GAP) + CELL_SIZE/2;
                 const cy = u.row * (CELL_SIZE + CELL_GAP) + CELL_SIZE/2;
                 
@@ -337,7 +338,7 @@
             ctxL.restore();
         }
 
-        // ==================== 渲染右侧 PCB (带镜头矩阵) ====================
+        // ==================== 渲染右侧 PCB ====================
         function renderRightCanvas() {
             ctxR.clearRect(0, 0, canvasR.width, canvasR.height);
             ctxR.save();
@@ -387,7 +388,6 @@
 
         // ==================== 交互与事件处理 ====================
         
-        // --- 通用滚轮缩放函数 ---
         function handleWheel(e, canvas, cam, renderFunc) {
             e.preventDefault();
             const rect = canvas.getBoundingClientRect();
@@ -413,7 +413,6 @@
         canvasR.addEventListener('wheel', (e) => handleWheel(e, canvasR, rightCam, renderRightCanvas), {passive: false});
 
 
-        // --- 左侧 交互逻辑 ---
         function getLeftClickTarget(mx, my) {
             let wx = (mx - leftCam.x) / leftCam.scale;
             let wy = (my - leftCam.y) / leftCam.scale;
@@ -422,7 +421,6 @@
                 const u = units[unitId];
                 const cx = u.col * (CELL_SIZE + CELL_GAP) + CELL_SIZE/2;
                 const cy = u.row * (CELL_SIZE + CELL_GAP) + CELL_SIZE/2;
-                // 放大一点判定范围，方便点选
                 if (Math.sqrt((wx - cx)**2 + (wy - cy)**2) < CELL_SIZE/2 + 3) return unitId;
             }
             return null;
@@ -440,26 +438,24 @@
             const unitId = getLeftClickTarget(mx, my);
 
             if (unitId) {
-                // 点击了孔位
                 if (selectedPCB !== null && selectedPort !== null && !units[unitId].connected) {
                     connectUnitToPort(unitId, selectedPCB, selectedPort);
-                    updateStatus(`✅ 连线完成: 单元 ${unitId} -> PCB #${selectedPCB+1} [P${selectedPort+1}]`);
+                    updateStatus(`✅ 连线完成: 单元 ID [${unitId}] -> PCB #${selectedPCB+1} [P${selectedPort+1}]`);
                     selectedUnit = null; selectedPCB = null; selectedPort = null;
                 } else {
                     selectedUnit = selectedUnit === unitId ? null : unitId;
                     selectedPCB = null; selectedPort = null;
                     if (selectedUnit && units[unitId].connected) {
                         const conn = findUnitConnection(unitId);
-                        updateStatus(`🎯 选中已连单元 ${unitId} (连接至 PCB #${conn.pcb + 1} 端口 P${conn.port+1})`);
+                        updateStatus(`🎯 选中已连单元 ID [${unitId}] (连接至 PCB #${conn.pcb + 1} 端口 P${conn.port+1})`);
                     } else if(selectedUnit) {
-                        updateStatus(`🎯 选中单元 ${unitId} -> 请去右边点击端口连线`);
+                        updateStatus(`🎯 选中单元 ID [${unitId}] -> 请去右边点击端口连线`);
                     } else {
                         updateStatus(`就绪`);
                     }
                 }
                 updateAll();
             } else {
-                // 点击空白处，开启拖拽
                 isDraggingLeft = true;
                 dragStartLeft = { x: mx - leftCam.x, y: my - leftCam.y };
                 canvasL.parentElement.style.cursor = 'grabbing';
@@ -488,7 +484,6 @@
             canvasR.parentElement.style.cursor = 'grab';
         });
 
-        // --- 右侧 交互逻辑 ---
         function getRightClickTarget(mx, my) {
             let wx = (mx - rightCam.x) / rightCam.scale;
             let wy = (my - rightCam.y) / rightCam.scale;
@@ -538,11 +533,11 @@
             
             if (selectedUnit && !units[selectedUnit].connected) {
                 connectUnitToPort(selectedUnit, pcbIdx, portIdx);
-                updateStatus(`✅ 手动连接成功：单元 ${selectedUnit} -> PCB #${pcbIdx+1} [P${portIdx+1}]`);
+                updateStatus(`✅ 手动连接成功：单元 ID [${selectedUnit}] -> PCB #${pcbIdx+1} [P${portIdx+1}]`);
                 selectedUnit = null; selectedPCB = null; selectedPort = null;
             } else if (existingUnit) {
                 selectedUnit = existingUnit; 
-                updateStatus(`🎯 反向选中单元 ${existingUnit}`);
+                updateStatus(`🎯 反向选中单元 ID [${existingUnit}]`);
             } else {
                 updateStatus(`🎯 选中 PCB #${pcbIdx+1} 端口 P${portIdx+1} -> 请点击左侧孔位`);
             }
@@ -555,7 +550,7 @@
                 const emptyIdx = pcbs[pcbIdx].ports.findIndex(p => p === null);
                 if (emptyIdx !== -1) {
                     connectUnitToPort(selectedUnit, pcbIdx, emptyIdx);
-                    updateStatus(`✅ 极速自动连线：单元 ${selectedUnit} -> PCB #${pcbIdx+1} [P${emptyIdx+1}]`);
+                    updateStatus(`✅ 极速自动连线：单元 ID [${selectedUnit}] -> PCB #${pcbIdx+1} [P${emptyIdx+1}]`);
                     selectedUnit = null; selectedPCB = null;
                 } else {
                     updateStatus(`⚠️ 警告：PCB #${pcbIdx+1} 已满，请换板！`);
@@ -566,7 +561,6 @@
             updateAll();
         }
 
-        // --- 悬停 Tooltip 逻辑 ---
         const tooltip = document.getElementById('tooltip');
         
         canvasL.addEventListener('mousemove', (e) => {
@@ -587,11 +581,12 @@
 
         function showLeftTooltip(e, unitId) {
             if (!unitId) { tooltip.style.display = 'none'; return; }
-            const u = units[unitId];
-            let txt = `坐标 [${u.col}, ${u.row}] ID:${unitId}`;
-            if (u.connected) {
+            let txt = `<b>孔位 ID: [ ${unitId} ]</b>`;
+            if (units[unitId].connected) {
                 const conn = findUnitConnection(unitId);
                 txt += `<br>✅ 已连 PCB #${conn.pcb+1} - P${conn.port+1}`;
+            } else {
+                txt += `<br>⚪ 未连接`;
             }
             tooltip.innerHTML = txt;
             tooltip.style.display = 'block';
@@ -606,7 +601,7 @@
             if (target.type === 'port') {
                 const unitId = pcbs[target.pcb].ports[target.port];
                 txt += `<br>端口 P${target.port + 1}`;
-                if (unitId) txt += `<br>✅ 已连: ${unitId}`;
+                if (unitId) txt += `<br>✅ 已连: [ ${unitId} ]`;
                 else txt += `<br>⚪ 空闲`;
             } else {
                 const connCount = pcbs[target.pcb].ports.filter(p => p !== null).length;
@@ -621,7 +616,7 @@
 
         // ==================== 按钮与数据导入导出 ====================
         document.getElementById('btnSave').addEventListener('click', () => {
-            const data = { version: '5.0', pcbs, units };
+            const data = { version: '6.0', pcbs, units };
             const blob = new Blob([JSON.stringify(data)], { type: 'application/json' });
             const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
             a.download = `pcb_mapping_${new Date().getTime()}.json`; a.click();
@@ -660,13 +655,21 @@
         });
 
         document.getElementById('btnExport').addEventListener('click', () => {
-            let out = '// 基于可视化的 PCB Mapping 生成代码\n\n';
+            let out = '// 基于可视化的 PCB Mapping 生成代码\n';
+            out += '// 格式: 0x(高8位为行号)(低8位为该行的孔序号), 0xFFFF代表该端口未连接\n\n';
+            
             pcbs.forEach((pcb, idx) => {
                 out += `const uint16_t pcb_${idx + 1}_map[16] = {`;
                 const vals = pcb.ports.map(uid => {
                     if (!uid) return '0xFFFF';
-                    const [c, r] = uid.split('_').map(Number);
-                    return `0x${((r << 8) | c).toString(16).padStart(4, '0').toUpperCase()}`;
+                    
+                    // uid 格式为 "行号_行内序号"，例如 "1_5"
+                    const [rowNum, holeNum] = uid.split('_').map(Number);
+                    
+                    // 将其打包成 16进制: 行号放到高8位，序号放到低8位
+                    const hexValue = (rowNum << 8) | holeNum;
+                    
+                    return `0x${hexValue.toString(16).padStart(4, '0').toUpperCase()}`;
                 });
                 out += vals.join(', ') + '};\n';
             });
@@ -687,7 +690,7 @@
             document.getElementById('connectedUnits').textContent = connCount;
             
             let selTxt = '无';
-            if(selectedUnit) selTxt = `孔位 [${selectedUnit}]`;
+            if(selectedUnit) selTxt = `孔位 [ ${selectedUnit} ]`;
             if(selectedPCB !== null) selTxt += ` | PCB #${selectedPCB+1}` + (selectedPort !== null ? ` P${selectedPort+1}` : '');
             document.getElementById('selectedTarget').textContent = selTxt;
 

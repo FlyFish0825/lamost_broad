@@ -1,0 +1,48 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "CMake: Build Debug",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "build/Debug"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "OpenOCD: Flash Debug ELF",
+            "type": "shell",
+            "dependsOn": "CMake: Build Debug",
+            "dependsOrder": "sequence",
+            "command": "C:\\Program Files\\openOCD\\bin\\openocd.exe",
+            "args": [
+                "-f",
+                "interface/stlink.cfg",
+                "-f",
+                "target/stm32f3x.cfg",
+                "-c",
+                "program build/Debug/lamost_broad_MCU.elf verify reset exit"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "CMake + OpenOCD: Build and Flash Debug",
+            "dependsOn": [
+                "CMake: Build Debug",
+                "OpenOCD: Flash Debug ELF"
+            ],
+            "dependsOrder": "sequence",
+            "group": "build",
+            "problemMatcher": []
+        }
+    ]
+}

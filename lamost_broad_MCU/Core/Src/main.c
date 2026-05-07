@@ -26,7 +26,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "stdio.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -96,13 +96,38 @@ int main(void)
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
 
+
+  CAN_TxHeaderTypeDef TxHeader;
+  uint8_t TxData[8] = {0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08};
+  uint32_t TxMailbox;
+
+  // 1. 启动 CAN 外设
+  if (HAL_CAN_Start(&hcan) != HAL_OK) {
+    Error_Handler();
+  }
+
+  // 2. 配置发送帧头（标准格式，数据帧）
+  TxHeader.StdId = 0x12; // 标准 ID = 0x12
+  TxHeader.ExtId = 0;
+  TxHeader.IDE = CAN_ID_STD;   // 标准帧
+  TxHeader.RTR = CAN_RTR_DATA; // 数据帧
+  TxHeader.DLC = 8;            // 数据长度 8 字节
+  TxHeader.TransmitGlobalTime = DISABLE;
+
+ 
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    /* USER CODE END WHILE */
+     HAL_CAN_AddTxMessage(&hcan, &TxHeader, TxData, &TxMailbox);
+     printf("Hello world\r\n");
+     HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_0);
+     HAL_Delay(200);
+    
+    
+     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
   }
@@ -157,6 +182,13 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
+
+// 重定向 printf 到 USART1
+int _write(int file, char *ptr, int len)
+{
+    HAL_UART_Transmit(&huart1, (uint8_t *)ptr, len, HAL_MAX_DELAY);
+    return len;
+}
 
 /* USER CODE END 4 */
 

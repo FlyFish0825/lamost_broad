@@ -1,2 +1,4 @@
 CompileFlags:
-	CompilationDatabase: build/Debug
+  CompilationDatabase: build/Debug
+  Add:
+    - -isystemC:\Users\Administered\.eide\tools\gcc_arm\arm-none-eabi\include

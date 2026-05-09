@@ -27,6 +27,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "stdio.h"
+#include "just_led.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -36,7 +37,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
+extern const uint16_t pcb_1_map[16];
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -97,37 +98,18 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
 
-  CAN_TxHeaderTypeDef TxHeader;
-  uint8_t TxData[8] = {0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08};
-  uint32_t TxMailbox;
+  HAL_TIM_Base_Start_IT(&htim1); // 启动 TIM1 的基本定时器中断
+  HAL_TIM_OC_Start_IT(&htim1, TIM_CHANNEL_1); // 启动 TIM1 的输出比较中断,使用通道 1
 
-  // 1. 启动 CAN 外设
-  if (HAL_CAN_Start(&hcan) != HAL_OK) {
-    Error_Handler();
-  }
-
-  // 2. 配置发送帧头（标准格式，数据帧）
-  TxHeader.StdId = 0x12; // 标准 ID = 0x12
-  TxHeader.ExtId = 0;
-  TxHeader.IDE = CAN_ID_STD;   // 标准帧
-  TxHeader.RTR = CAN_RTR_DATA; // 数据帧
-  TxHeader.DLC = 8;            // 数据长度 8 字节
-  TxHeader.TransmitGlobalTime = DISABLE;
-
- 
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-     HAL_CAN_AddTxMessage(&hcan, &TxHeader, TxData, &TxMailbox);
-     printf("Hello world\r\n");
-     HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_0);
-     HAL_Delay(200);
+     
     
-    
-     /* USER CODE END WHILE */
+    /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
   }

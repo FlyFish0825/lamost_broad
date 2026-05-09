@@ -43,6 +43,18 @@
             "dependsOrder": "sequence",
             "group": "build",
             "problemMatcher": []
+        },
+        {
+            "type": "cmake",
+            "label": "CMake: 清理重新生成",
+            "command": "cleanRebuild",
+            "targets": [
+                "all"
+            ],
+            "preset": "Debug",
+            "group": "build",
+            "problemMatcher": [],
+            "detail": "CMake 模板 清理重新生成 任务"
         }
     ]
 }

@@ -3,6 +3,12 @@
 
 #include "main.h"
 
+
+#define JUST_BOARD_LED_BLINK_INTERVAL 500 // LED闪烁间隔，单位为毫秒
+#define JUST_BOARD_LED_NUMBER 16          // LED数量
+
+
+
 typedef struct LED{
     GPIO_TypeDef *port;
     uint16_t pin;

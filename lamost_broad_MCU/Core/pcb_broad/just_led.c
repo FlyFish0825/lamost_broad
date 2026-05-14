@@ -1,8 +1,7 @@
 #include "just_led.h"
 #include "main.h"
 
-#define JUST_BOARD_LED_BLINK_INTERVAL 500 // LED闪烁间隔，单位为毫秒
-#define JUST_BOARD_LED_NUMBER 16          // LED数量
+
 const uint16_t pcb_1_map[16] = {0x0201, 0x0202, 0x0203, 0x0101, 0x0204, 0x0102,
                                 0x0205, 0x0103, 0x0301, 0x0302, 0x0303, 0x0304,
                                 0x0305, 0x0306, 0x0307, 0x0308};
@@ -51,13 +50,6 @@ void just_led_control(uint16_t led_id, uint8_t state)
 
 
 
-
-
-
-
-
-
-
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
   static uint8_t blink_counter = 0; // 溢出中断计数器
   static uint8_t blink_phase = 1;   // 当前亮灭状态：1-亮，0-灭
@@ -66,7 +58,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
     // 例如，切换 LED 状态或执行其他定时任务
     // ------ 闪烁节拍控制（每进一次溢出中断计一次） ------
         blink_counter++;
-        if (blink_counter >= 30) {      // 26 → 闪烁频率约 2 Hz
+        if (blink_counter >= 50) {      // 26 → 闪烁频率约 2 Hz
             blink_counter = 0;
             blink_phase = !blink_phase;
         }

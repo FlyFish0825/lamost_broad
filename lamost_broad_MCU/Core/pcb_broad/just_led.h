@@ -3,8 +3,7 @@
 
 #include "main.h"
 
-// LED 闪烁间隔（毫秒），实际闪烁频率由定时器溢出频率和计数器阈值共同决定
-#define JUST_BOARD_LED_BLINK_INTERVAL 500
+
 // PCB 上 LED 的总数量
 #define JUST_BOARD_LED_NUMBER 16
 

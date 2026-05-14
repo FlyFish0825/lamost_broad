@@ -49,6 +49,10 @@ extern const uint16_t pcb_1_map[16];
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
+extern CAN_RxHeaderTypeDef   RxHeader;
+extern uint8_t               RxData[8];     // 假设最大数据长度 8 字节
+extern uint8_t               RxFlag ;    // 收到新数据的标志
+
 
 /* USER CODE END PV */
 
@@ -102,7 +106,7 @@ int main(void)
   HAL_TIM_OC_Start_IT(&htim1,
                       TIM_CHANNEL_1); // 启动 TIM1 的输出比较中断,使用通道 1
   HAL_CAN_Start(&hcan);
-
+  HAL_CAN_ActivateNotification(&hcan, CAN_IT_RX_FIFO0_MSG_PENDING); // 激活 CAN 接收中断，等待接收消息 
   /* 定义一个CAN发送消息头结构体变量 */
   CAN_TxHeaderTypeDef TxHeader;
   uint32_t TxMailbox; // 注意：必须提供一个uint32_t变量的地址！
@@ -117,23 +121,29 @@ int main(void)
   TxHeader.DLC = 8;
   TxHeader.TransmitGlobalTime = DISABLE;
 
+    for(int j=0;j<JUST_BOARD_LED_NUMBER;j++)
+    {
+        just_led_control(j, 1); // 设置所有LED为闪烁状态
+    }
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1) {
     // 调用发送，此函数非阻塞，仅将消息放入空闲邮箱
-    if (HAL_CAN_AddTxMessage(&hcan, &TxHeader, data, &TxMailbox) != HAL_OK) {
-      HAL_CAN_Start(&hcan);
-    }
-    HAL_Delay(100); // 周期性发送，便于用示波器观察波形
+    // if (HAL_CAN_AddTxMessage(&hcan, &TxHeader, data, &TxMailbox) != HAL_OK) {
+    //   HAL_CAN_Start(&hcan);
+    // }
+    // HAL_Delay(1000); // 周期性发送，便于用示波器观察波形
 
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
 
-    just_led_control(0, 1); // 点亮 LED1
-    just_led_control(1, 2); // LED2 闪烁
+ 
+
+
   }
   /* USER CODE END 3 */
 }

@@ -26,6 +26,13 @@ PCB_Broad_LED pcb_leds[16] = {
     {GPIOB, GPIO_PIN_7, 0},  // LED16 PB7
 };
 
+CAN_RxHeaderTypeDef   RxHeader;
+uint8_t               RxData[8];     // 假设最大数据长度 8 字节
+uint8_t               RxFlag = 0;    // 收到新数据的标志
+
+
+
+
 void just_led_light(uint16_t led_id) {
   if (led_id < JUST_BOARD_LED_NUMBER) {
     PCB_Broad_LED PCB_LED = pcb_leds[led_id];
@@ -92,3 +99,20 @@ void HAL_TIM_OC_DelayElapsedCallback(TIM_HandleTypeDef *htim) {
     }
   }
 }
+
+
+
+void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
+{
+    /* 从 FIFO0 中取出消息 */
+    if (HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &RxHeader, RxData) == HAL_OK)
+    {
+        RxFlag = 1;   // 告诉主循环有新数据到了
+        // 这里不要做耗时操作！
+    }
+}
+
+
+
+
+

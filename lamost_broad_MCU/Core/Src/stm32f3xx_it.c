@@ -231,6 +231,20 @@ void DMA1_Channel5_IRQHandler(void)
 }
 
 /**
+  * @brief This function handles CAN RX0 and USB low priority interrupts.
+  */
+void USB_LP_CAN_RX0_IRQHandler(void)
+{
+  /* USER CODE BEGIN USB_LP_CAN_RX0_IRQn 0 */
+
+  /* USER CODE END USB_LP_CAN_RX0_IRQn 0 */
+  HAL_CAN_IRQHandler(&hcan);
+  /* USER CODE BEGIN USB_LP_CAN_RX0_IRQn 1 */
+
+  /* USER CODE END USB_LP_CAN_RX0_IRQn 1 */
+}
+
+/**
   * @brief This function handles CAN RX1 interrupt.
   */
 void CAN_RX1_IRQHandler(void)

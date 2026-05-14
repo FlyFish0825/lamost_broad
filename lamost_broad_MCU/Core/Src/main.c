@@ -107,13 +107,15 @@ int main(void) {
   /* 定义一个CAN发送消息头结构体变量 */
   CAN_TxHeaderTypeDef TxHeader;
   uint32_t TxMailbox; // 注意：必须提供一个uint32_t变量的地址！
-  uint8_t data[2] = {0x01, 0x02};
+  uint8_t data[8] = {
+      0xAA, 0x02, 0x00, 0x00,
+      0x00, 0x00, 0x00, 0x00}; // 待发送的数据，长度由 TxHeader.DLC 决定
   // 填充报文头
   TxHeader.StdId = 0x01;
   TxHeader.ExtId = 0;
   TxHeader.RTR = CAN_RTR_DATA;
   TxHeader.IDE = CAN_ID_STD;
-  TxHeader.DLC = 2;
+  TxHeader.DLC = 8;
   TxHeader.TransmitGlobalTime = DISABLE;
 
   /* USER CODE END 2 */

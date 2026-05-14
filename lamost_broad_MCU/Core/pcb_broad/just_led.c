@@ -26,13 +26,19 @@ PCB_Broad_LED pcb_leds[16] = {
     {GPIOB, GPIO_PIN_7, 0},  // LED16 PB7
 };
 
-CAN_RxHeaderTypeDef   RxHeader;
-uint8_t               RxData[8];     // 假设最大数据长度 8 字节
-uint8_t               RxFlag = 0;    // 收到新数据的标志
+
+// CAN 接收相关全局变量
+CAN_RxHeaderTypeDef   RxHeader;   // 接收到的报文头信息
+uint8_t               RxData[8];  // 接收到的报文数据（最大 8 字节）
+uint8_t               RxFlag = 0; // 接收标志，1 表示有新数据，需在主循环中清零
 
 
 
-
+/**
+ * @brief  点亮指定编号的 LED（常亮）
+ * @param  led_id : LED 序号（0 ~ JUST_BOARD_LED_NUMBER-1）
+ * @note   该函数直接操作 GPIO 输出高电平，需确保引脚已初始化为推挽输出
+ */
 void just_led_light(uint16_t led_id) {
   if (led_id < JUST_BOARD_LED_NUMBER) {
     PCB_Broad_LED PCB_LED = pcb_leds[led_id];
@@ -40,6 +46,11 @@ void just_led_light(uint16_t led_id) {
   }
 }
 
+
+/**
+ * @brief  熄灭指定编号的 LED
+ * @param  led_id : LED 序号（0 ~ JUST_BOARD_LED_NUMBER-1）
+ */
 void just_led_Delight(uint16_t led_id) {
   if (led_id < JUST_BOARD_LED_NUMBER) {
     PCB_Broad_LED PCB_LED = pcb_leds[led_id];
@@ -49,6 +60,12 @@ void just_led_Delight(uint16_t led_id) {
 
 
 
+/**
+ * @brief  设置指定 LED 的工作状态
+ * @param  led_id : LED 序号
+ * @param  state  : 状态值，0=熄灭，1=常亮，2=闪烁
+ * @note   该函数仅更新软件状态标志，实际亮灭由定时器中断回调统一处理
+ */
 void just_led_control(uint16_t led_id, uint8_t state)
 {
     pcb_leds[led_id].state = state; // 更新LED状态
@@ -56,7 +73,13 @@ void just_led_control(uint16_t led_id, uint8_t state)
 
 
 
-
+/**
+ * @brief  TIM1 溢出中断回调函数（实现 LED 闪烁及调光）
+ * @param  htim : 指向触发中断的定时器句柄
+ * @note   每发生一次溢出中断，全局计数器递增；达到阈值后翻转闪烁相位。
+ *         然后遍历所有 LED，根据其 state 决定是否点亮；
+ *         点亮操作会打开 LED，随后的 OC 中断负责熄灭，形成简易 PWM。
+ */
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
   static uint8_t blink_counter = 0; // 溢出中断计数器
   static uint8_t blink_phase = 1;   // 当前亮灭状态：1-亮，0-灭
@@ -89,6 +112,12 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
   }
 
 
+
+  /**
+ * @brief  TIM1 输出比较中断回调（用于熄灭所有 LED，完成 PWM 周期）
+ * @param  htim : 指向触发中断的定时器句柄
+ * @note   在 OC 事件发生时，强制关闭所有 LED 输出，与溢出中断配合实现调光。
+ */
 void HAL_TIM_OC_DelayElapsedCallback(TIM_HandleTypeDef *htim) {
 
   if (htim->Instance == TIM1) {
@@ -102,6 +131,12 @@ void HAL_TIM_OC_DelayElapsedCallback(TIM_HandleTypeDef *htim) {
 
 
 
+/**
+ * @brief  CAN FIFO0 消息挂起回调函数
+ * @param  hcan : CAN 句柄指针
+ * @note   当 FIFO0 中有新消息时，HAL 库在中断服务函数中调用本回调。
+ *         这里仅取出报文并置位接收标志，后续由主循环处理，避免在中断中耗时。
+ */
 void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 {
     /* 从 FIFO0 中取出消息 */

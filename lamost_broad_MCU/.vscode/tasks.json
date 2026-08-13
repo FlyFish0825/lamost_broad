@@ -2,7 +2,7 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "CMake: Build Debug",
+            "label": "Build STM32",
             "type": "shell",
             "command": "cmake",
             "args": [
@@ -12,13 +12,16 @@
             "options": {
                 "cwd": "${workspaceFolder}"
             },
-            "group": "build",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
             "problemMatcher": []
         },
         {
-            "label": "OpenOCD: Flash Debug ELF",
+            "label": "OpenOCD Flash STM32",
             "type": "shell",
-            "dependsOn": "CMake: Build Debug",
+            "dependsOn": "Build STM32",
             "dependsOrder": "sequence",
             "command": "C:\\Program Files\\openOCD\\bin\\openocd.exe",
             "args": [
@@ -35,26 +38,18 @@
             "problemMatcher": []
         },
         {
-            "label": "CMake + OpenOCD: Build and Flash Debug",
-            "dependsOn": [
-                "CMake: Build Debug",
-                "OpenOCD: Flash Debug ELF"
+            "label": "Clean Rebuild STM32",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "build/Debug",
+                "--clean-first"
             ],
-            "dependsOrder": "sequence",
-            "group": "build",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
             "problemMatcher": []
-        },
-        {
-            "type": "cmake",
-            "label": "CMake: 清理重新生成",
-            "command": "cleanRebuild",
-            "targets": [
-                "all"
-            ],
-            "preset": "Debug",
-            "group": "build",
-            "problemMatcher": [],
-            "detail": "CMake 模板 清理重新生成 任务"
         }
     ]
 }

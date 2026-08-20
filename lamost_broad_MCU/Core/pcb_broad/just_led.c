@@ -27,11 +27,6 @@ PCB_Broad_LED pcb_leds[16] = {
 };
 
 
-// CAN 接收相关全局变量
-CAN_RxHeaderTypeDef   RxHeader;   // 接收到的报文头信息
-uint8_t               RxData[8];  // 接收到的报文数据（最大 8 字节）
-uint8_t               RxFlag = 0; // 接收标志，1 表示有新数据，需在主循环中清零
-
 
 
 /**
@@ -129,23 +124,6 @@ void HAL_TIM_OC_DelayElapsedCallback(TIM_HandleTypeDef *htim) {
   }
 }
 
-
-
-/**
- * @brief  CAN FIFO0 消息挂起回调函数
- * @param  hcan : CAN 句柄指针
- * @note   当 FIFO0 中有新消息时，HAL 库在中断服务函数中调用本回调。
- *         这里仅取出报文并置位接收标志，后续由主循环处理，避免在中断中耗时。
- */
-void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
-{
-    /* 从 FIFO0 中取出消息 */
-    if (HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &RxHeader, RxData) == HAL_OK)
-    {
-        RxFlag = 1;   // 告诉主循环有新数据到了
-        // 这里不要做耗时操作！
-    }
-}
 
 
 

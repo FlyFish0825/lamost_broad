@@ -5,19 +5,37 @@
             "name": "Cortex Debug: STM32F302K8Ux",
             "type": "cortex-debug",
             "request": "launch",
+
             "servertype": "openocd",
             "serverpath": "C:/Program Files/openOCD/bin/openocd.exe",
+
             "configFiles": [
                 "interface/stlink.cfg",
                 "target/stm32f3x.cfg"
             ],
+
             "executable": "${workspaceFolder}/build/Debug/lamost_broad_MCU.elf",
             "cwd": "${workspaceFolder}",
+
             "device": "STM32F302K8Ux",
             "interface": "swd",
+
             "runToEntryPoint": "main",
-            "preLaunchTask": "CMake: Build Debug",
-            "showDevDebugOutput": "raw"
+
+            "preLaunchTask": "Build STM32",
+
+            "showDevDebugOutput": "raw",
+
+
+            "liveWatch": {
+                "enabled": true,
+                "samplesPerSecond": 4,
+                "variables": [
+                    "can_rx.write_index",
+                    "can_rx.read_index",
+                    "can_rx.overflow_count"
+                ]
+            }
         }
     ]
 }

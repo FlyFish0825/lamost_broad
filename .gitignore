@@ -1,0 +1,6 @@
+# Local Canvas working files
+Canvas/*_before_*.html
+Canvas/patch_*.js
+Canvas/check_*.js
+Canvas/fix_*.js
+Canvas/*~

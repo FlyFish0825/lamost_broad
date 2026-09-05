@@ -131,9 +131,6 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    
-    HAL_Delay(10); // 延时 10 毫秒，避免过于频繁的处理
-    printf(":%d\n",can_rx.count); // 打印当前缓存数量，便于调试观察
     CAN_RX_Process(&can_rx);
      
 

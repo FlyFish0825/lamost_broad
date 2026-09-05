@@ -63,7 +63,9 @@ void just_led_Delight(uint16_t led_id) {
  */
 void just_led_control(uint16_t led_id, uint8_t state)
 {
-    pcb_leds[led_id].state = state; // 更新LED状态
+    if (led_id < JUST_BOARD_LED_NUMBER) {
+        pcb_leds[led_id].state = state; // 更新LED状态
+    }
 }
 
 

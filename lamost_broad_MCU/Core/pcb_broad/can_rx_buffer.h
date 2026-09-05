@@ -4,7 +4,7 @@
 #include "can.h"
 #include "main.h"
 
-#define CAN_RX_BUFFER_SIZE 256
+#define CAN_RX_BUFFER_SIZE 32
 
 /*
  * CAN接收消息

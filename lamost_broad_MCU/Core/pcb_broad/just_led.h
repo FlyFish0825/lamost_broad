@@ -7,6 +7,11 @@
 // PCB 上 LED 的总数量
 #define JUST_BOARD_LED_NUMBER 16
 
+// 当前编译目标 PCB 编号，可通过编译器 -DPCB_ID=N 覆盖
+#ifndef PCB_ID
+#define PCB_ID 1
+#endif
+
 /**
  * @brief LED 引脚及状态结构体
  * @param port  : 所属 GPIO 端口
@@ -19,8 +24,8 @@ typedef struct LED{
     uint8_t state;
 }PCB_Broad_LED;
 
-// 外部变量声明 —— PCB1 的连接映射表（单元ID数组）
-extern const uint16_t pcb_1_map[16];
+// 当前 PCB 的外部单元映射表，数组下标对应 USB/LED 编号减 1
+extern const uint16_t pcb_map[JUST_BOARD_LED_NUMBER];
 // 外部变量声明 —— LED 硬件引脚状态数组
 extern PCB_Broad_LED pcb_leds[16];
 

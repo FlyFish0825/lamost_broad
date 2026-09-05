@@ -38,7 +38,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-extern const uint16_t pcb_1_map[16];
+extern const uint16_t pcb_map[JUST_BOARD_LED_NUMBER];
 
 
 

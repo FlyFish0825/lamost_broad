@@ -1,0 +1,4611 @@
+{
+  "description": "主节点与52块PCB的物理分组记录；每个主节点下挂2块PCB，组内CAN地址重新从0开始。",
+  "pcb_numbering": "沿用Canvas中PCB的全局编号：自上而下、每行自左向右，范围1~52。",
+  "local_can_id_rule": "每个主节点的下行CAN是独立局部总线；组内第一块PCB为local_can_id=0，第二块为local_can_id=1。水平组按左到右，竖直组按上到下。",
+  "groups": [
+    {
+      "main_node": 1,
+      "pcbs": [
+        {
+          "pcb": 4,
+          "local_can_id": 0,
+          "ports": [
+            {
+              "port": 1,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 2,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 3,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 4,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 5,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 6,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 7,
+              "middle_id": "L061",
+              "front_id": "A77"
+            },
+            {
+              "port": 8,
+              "middle_id": "L062",
+              "front_id": "A98"
+            },
+            {
+              "port": 9,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 10,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 11,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 12,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 13,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 14,
+              "middle_id": "L086",
+              "front_id": "A75"
+            },
+            {
+              "port": 15,
+              "middle_id": "L087",
+              "front_id": "A76"
+            },
+            {
+              "port": 16,
+              "middle_id": "L088",
+              "front_id": "A142"
+            }
+          ]
+        },
+        {
+          "pcb": 5,
+          "local_can_id": 1,
+          "ports": [
+            {
+              "port": 1,
+              "middle_id": "L040",
+              "front_id": "A121"
+            },
+            {
+              "port": 2,
+              "middle_id": "L041",
+              "front_id": "A168"
+            },
+            {
+              "port": 3,
+              "middle_id": "L023",
+              "front_id": "A170"
+            },
+            {
+              "port": 4,
+              "middle_id": "L042",
+              "front_id": "A146"
+            },
+            {
+              "port": 5,
+              "middle_id": "L065",
+              "front_id": "A145"
+            },
+            {
+              "port": 6,
+              "middle_id": "L024",
+              "front_id": "A220"
+            },
+            {
+              "port": 7,
+              "middle_id": "L043",
+              "front_id": "A171"
+            },
+            {
+              "port": 8,
+              "middle_id": "L066",
+              "front_id": "A219"
+            },
+            {
+              "port": 9,
+              "middle_id": "L115",
+              "front_id": "A97"
+            },
+            {
+              "port": 10,
+              "middle_id": "L063",
+              "front_id": "A99"
+            },
+            {
+              "port": 11,
+              "middle_id": "L089",
+              "front_id": "A143"
+            },
+            {
+              "port": 12,
+              "middle_id": "L090",
+              "front_id": "A144"
+            },
+            {
+              "port": 13,
+              "middle_id": "L064",
+              "front_id": "A122"
+            },
+            {
+              "port": 14,
+              "middle_id": "L117",
+              "front_id": "A167"
+            },
+            {
+              "port": 15,
+              "middle_id": "L091",
+              "front_id": "A169"
+            },
+            {
+              "port": 16,
+              "middle_id": "L092",
+              "front_id": "A195"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "main_node": 2,
+      "pcbs": [
+        {
+          "pcb": 1,
+          "local_can_id": 0,
+          "ports": [
+            {
+              "port": 1,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 2,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 3,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 4,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 5,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 6,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 7,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 8,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 9,
+              "middle_id": "L025",
+              "front_id": "A221"
+            },
+            {
+              "port": 10,
+              "middle_id": "L002",
+              "front_id": "A281"
+            },
+            {
+              "port": 11,
+              "middle_id": "L011",
+              "front_id": "A249"
+            },
+            {
+              "port": 12,
+              "middle_id": "L026",
+              "front_id": "A248"
+            },
+            {
+              "port": 13,
+              "middle_id": "L012",
+              "front_id": "A278"
+            },
+            {
+              "port": 14,
+              "middle_id": "L027",
+              "front_id": "A252"
+            },
+            {
+              "port": 15,
+              "middle_id": "L013",
+              "front_id": "A280"
+            },
+            {
+              "port": 16,
+              "middle_id": "L028",
+              "front_id": "A279"
+            }
+          ]
+        },
+        {
+          "pcb": 6,
+          "local_can_id": 1,
+          "ports": [
+            {
+              "port": 1,
+              "middle_id": "L044",
+              "front_id": "A197"
+            },
+            {
+              "port": 2,
+              "middle_id": "L045",
+              "front_id": "A224"
+            },
+            {
+              "port": 3,
+              "middle_id": "L068",
+              "front_id": "A223"
+            },
+            {
+              "port": 4,
+              "middle_id": "L046",
+              "front_id": "A251"
+            },
+            {
+              "port": 5,
+              "middle_id": "L069",
+              "front_id": "A250"
+            },
+            {
+              "port": 6,
+              "middle_id": "L047",
+              "front_id": "A303"
+            },
+            {
+              "port": 7,
+              "middle_id": "L070",
+              "front_id": "A302"
+            },
+            {
+              "port": 8,
+              "middle_id": "L048",
+              "front_id": "A327"
+            },
+            {
+              "port": 9,
+              "middle_id": "L067",
+              "front_id": "A196"
+            },
+            {
+              "port": 10,
+              "middle_id": "L093",
+              "front_id": "A222"
+            },
+            {
+              "port": 11,
+              "middle_id": "L119",
+              "front_id": "A194"
+            },
+            {
+              "port": 12,
+              "middle_id": "L120",
+              "front_id": "A247"
+            },
+            {
+              "port": 13,
+              "middle_id": "L094",
+              "front_id": "A276"
+            },
+            {
+              "port": 14,
+              "middle_id": "L121",
+              "front_id": "A275"
+            },
+            {
+              "port": 15,
+              "middle_id": "L095",
+              "front_id": "A277"
+            },
+            {
+              "port": 16,
+              "middle_id": "L122",
+              "front_id": "A300"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "main_node": 3,
+      "pcbs": [
+        {
+          "pcb": 2,
+          "local_can_id": 0,
+          "ports": [
+            {
+              "port": 1,
+              "middle_id": "L003",
+              "front_id": "A305"
+            },
+            {
+              "port": 2,
+              "middle_id": "L004",
+              "front_id": "A329"
+            },
+            {
+              "port": 3,
+              "middle_id": "L029",
+              "front_id": "A301"
+            },
+            {
+              "port": 4,
+              "middle_id": "L005",
+              "front_id": "A374"
+            },
+            {
+              "port": 5,
+              "middle_id": "L032",
+              "front_id": "A396"
+            },
+            {
+              "port": 6,
+              "middle_id": "L033",
+              "front_id": "A420"
+            },
+            {
+              "port": 7,
+              "middle_id": "L006",
+              "front_id": "A421"
+            },
+            {
+              "port": 8,
+              "middle_id": "L007",
+              "front_id": "A445"
+            },
+            {
+              "port": 9,
+              "middle_id": "L014",
+              "front_id": "A304"
+            },
+            {
+              "port": 10,
+              "middle_id": "L015",
+              "front_id": "A328"
+            },
+            {
+              "port": 11,
+              "middle_id": "L030",
+              "front_id": "A351"
+            },
+            {
+              "port": 12,
+              "middle_id": "L031",
+              "front_id": "A373"
+            },
+            {
+              "port": 13,
+              "middle_id": "L016",
+              "front_id": "A352"
+            },
+            {
+              "port": 14,
+              "middle_id": "L052",
+              "front_id": "A419"
+            },
+            {
+              "port": 15,
+              "middle_id": "L017",
+              "front_id": "A397"
+            },
+            {
+              "port": 16,
+              "middle_id": "L018",
+              "front_id": "A444"
+            }
+          ]
+        },
+        {
+          "pcb": 7,
+          "local_can_id": 1,
+          "ports": [
+            {
+              "port": 1,
+              "middle_id": "L071",
+              "front_id": "A326"
+            },
+            {
+              "port": 2,
+              "middle_id": "L072",
+              "front_id": "A349"
+            },
+            {
+              "port": 3,
+              "middle_id": "L049",
+              "front_id": "A350"
+            },
+            {
+              "port": 4,
+              "middle_id": "L050",
+              "front_id": "A372"
+            },
+            {
+              "port": 5,
+              "middle_id": "L073",
+              "front_id": "A371"
+            },
+            {
+              "port": 6,
+              "middle_id": "L051",
+              "front_id": "A395"
+            },
+            {
+              "port": 7,
+              "middle_id": "L074",
+              "front_id": "A394"
+            },
+            {
+              "port": 8,
+              "middle_id": "L075",
+              "front_id": "A418"
+            },
+            {
+              "port": 9,
+              "middle_id": "L096",
+              "front_id": "A325"
+            },
+            {
+              "port": 10,
+              "middle_id": "L097",
+              "front_id": "A348"
+            },
+            {
+              "port": 11,
+              "middle_id": "L124",
+              "front_id": "A347"
+            },
+            {
+              "port": 12,
+              "middle_id": "L098",
+              "front_id": "A370"
+            },
+            {
+              "port": 13,
+              "middle_id": "L125",
+              "front_id": "A369"
+            },
+            {
+              "port": 14,
+              "middle_id": "L126",
+              "front_id": "A392"
+            },
+            {
+              "port": 15,
+              "middle_id": "L099",
+              "front_id": "A393"
+            },
+            {
+              "port": 16,
+              "middle_id": "L100",
+              "front_id": "A417"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "main_node": 4,
+      "pcbs": [
+        {
+          "pcb": 3,
+          "local_can_id": 0,
+          "ports": [
+            {
+              "port": 1,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 2,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 3,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 4,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 5,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 6,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 7,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 8,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 9,
+              "middle_id": "L034",
+              "front_id": "A471"
+            },
+            {
+              "port": 10,
+              "middle_id": "L019",
+              "front_id": "A473"
+            },
+            {
+              "port": 11,
+              "middle_id": "L035",
+              "front_id": "A502"
+            },
+            {
+              "port": 12,
+              "middle_id": "L020",
+              "front_id": "A472"
+            },
+            {
+              "port": 13,
+              "middle_id": "L036",
+              "front_id": "A499"
+            },
+            {
+              "port": 14,
+              "middle_id": "L008",
+              "front_id": "A474"
+            },
+            {
+              "port": 15,
+              "middle_id": "L021",
+              "front_id": "A500"
+            },
+            {
+              "port": 16,
+              "middle_id": null,
+              "front_id": null
+            }
+          ]
+        },
+        {
+          "pcb": 8,
+          "local_can_id": 1,
+          "ports": [
+            {
+              "port": 1,
+              "middle_id": "L053",
+              "front_id": "A443"
+            },
+            {
+              "port": 2,
+              "middle_id": "L076",
+              "front_id": "A442"
+            },
+            {
+              "port": 3,
+              "middle_id": "L054",
+              "front_id": "A501"
+            },
+            {
+              "port": 4,
+              "middle_id": "L077",
+              "front_id": "A470"
+            },
+            {
+              "port": 5,
+              "middle_id": "L055",
+              "front_id": "A529"
+            },
+            {
+              "port": 6,
+              "middle_id": "L078",
+              "front_id": "A528"
+            },
+            {
+              "port": 7,
+              "middle_id": "L037",
+              "front_id": "A498"
+            },
+            {
+              "port": 8,
+              "middle_id": "L056",
+              "front_id": "A555"
+            },
+            {
+              "port": 9,
+              "middle_id": "L128",
+              "front_id": "A440"
+            },
+            {
+              "port": 10,
+              "middle_id": "L101",
+              "front_id": "A441"
+            },
+            {
+              "port": 11,
+              "middle_id": "L129",
+              "front_id": "A468"
+            },
+            {
+              "port": 12,
+              "middle_id": "L102",
+              "front_id": "A469"
+            },
+            {
+              "port": 13,
+              "middle_id": "L130",
+              "front_id": "A497"
+            },
+            {
+              "port": 14,
+              "middle_id": "L131",
+              "front_id": "A552"
+            },
+            {
+              "port": 15,
+              "middle_id": "L103",
+              "front_id": "A527"
+            },
+            {
+              "port": 16,
+              "middle_id": "L079",
+              "front_id": "A526"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "main_node": 5,
+      "pcbs": [
+        {
+          "pcb": 9,
+          "local_can_id": 0,
+          "ports": [
+            {
+              "port": 1,
+              "middle_id": "L080",
+              "front_id": "A524"
+            },
+            {
+              "port": 2,
+              "middle_id": "L057",
+              "front_id": "A580"
+            },
+            {
+              "port": 3,
+              "middle_id": "L038",
+              "front_id": "A554"
+            },
+            {
+              "port": 4,
+              "middle_id": "L081",
+              "front_id": "A604"
+            },
+            {
+              "port": 5,
+              "middle_id": "L058",
+              "front_id": "A579"
+            },
+            {
+              "port": 6,
+              "middle_id": "L039",
+              "front_id": "A553"
+            },
+            {
+              "port": 7,
+              "middle_id": "L059",
+              "front_id": "A603"
+            },
+            {
+              "port": 8,
+              "middle_id": "L060",
+              "front_id": "A602"
+            },
+            {
+              "port": 9,
+              "middle_id": "L104",
+              "front_id": "A525"
+            },
+            {
+              "port": 10,
+              "middle_id": "L105",
+              "front_id": "A578"
+            },
+            {
+              "port": 11,
+              "middle_id": "L133",
+              "front_id": "A576"
+            },
+            {
+              "port": 12,
+              "middle_id": "L082",
+              "front_id": "A627"
+            },
+            {
+              "port": 13,
+              "middle_id": "L106",
+              "front_id": "A577"
+            },
+            {
+              "port": 14,
+              "middle_id": "L107",
+              "front_id": "A626"
+            },
+            {
+              "port": 15,
+              "middle_id": "L083",
+              "front_id": "A649"
+            },
+            {
+              "port": 16,
+              "middle_id": "L135",
+              "front_id": "A600"
+            }
+          ]
+        },
+        {
+          "pcb": 10,
+          "local_can_id": 1,
+          "ports": [
+            {
+              "port": 1,
+              "middle_id": "L084",
+              "front_id": "A648"
+            },
+            {
+              "port": 2,
+              "middle_id": "L085",
+              "front_id": "A670"
+            },
+            {
+              "port": 3,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 4,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 5,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 6,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 7,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 8,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 9,
+              "middle_id": "L108",
+              "front_id": "A625"
+            },
+            {
+              "port": 10,
+              "middle_id": "L109",
+              "front_id": "A647"
+            },
+            {
+              "port": 11,
+              "middle_id": "L110",
+              "front_id": "A646"
+            },
+            {
+              "port": 12,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 13,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 14,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 15,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 16,
+              "middle_id": null,
+              "front_id": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "main_node": 6,
+      "pcbs": [
+        {
+          "pcb": 11,
+          "local_can_id": 0,
+          "ports": [
+            {
+              "port": 1,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 2,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 3,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 4,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 5,
+              "middle_id": "L170",
+              "front_id": "A71"
+            },
+            {
+              "port": 6,
+              "middle_id": "L111",
+              "front_id": "A73"
+            },
+            {
+              "port": 7,
+              "middle_id": "L171",
+              "front_id": "A22"
+            },
+            {
+              "port": 8,
+              "middle_id": "L141",
+              "front_id": "A54"
+            },
+            {
+              "port": 9,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 10,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 11,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 12,
+              "middle_id": "L140",
+              "front_id": "A72"
+            },
+            {
+              "port": 13,
+              "middle_id": "L201",
+              "front_id": "A21"
+            },
+            {
+              "port": 14,
+              "middle_id": "L202",
+              "front_id": "A35"
+            },
+            {
+              "port": 15,
+              "middle_id": "L234",
+              "front_id": "A114"
+            },
+            {
+              "port": 16,
+              "middle_id": "L203",
+              "front_id": "A36"
+            }
+          ]
+        },
+        {
+          "pcb": 12,
+          "local_can_id": 1,
+          "ports": [
+            {
+              "port": 1,
+              "middle_id": "L112",
+              "front_id": "A139"
+            },
+            {
+              "port": 2,
+              "middle_id": "L113",
+              "front_id": "A74"
+            },
+            {
+              "port": 3,
+              "middle_id": "L173",
+              "front_id": "A55"
+            },
+            {
+              "port": 4,
+              "middle_id": "L114",
+              "front_id": "A96"
+            },
+            {
+              "port": 5,
+              "middle_id": "L174",
+              "front_id": "A117"
+            },
+            {
+              "port": 6,
+              "middle_id": "L144",
+              "front_id": "A140"
+            },
+            {
+              "port": 7,
+              "middle_id": "L175",
+              "front_id": "A164"
+            },
+            {
+              "port": 8,
+              "middle_id": "L145",
+              "front_id": "A119"
+            },
+            {
+              "port": 9,
+              "middle_id": "L172",
+              "front_id": "A37"
+            },
+            {
+              "port": 10,
+              "middle_id": "L142",
+              "front_id": "A38"
+            },
+            {
+              "port": 11,
+              "middle_id": "L204",
+              "front_id": "A93"
+            },
+            {
+              "port": 12,
+              "middle_id": "L143",
+              "front_id": "A56"
+            },
+            {
+              "port": 13,
+              "middle_id": "L205",
+              "front_id": "A94"
+            },
+            {
+              "port": 14,
+              "middle_id": "L237",
+              "front_id": "A213"
+            },
+            {
+              "port": 15,
+              "middle_id": "L206",
+              "front_id": "A95"
+            },
+            {
+              "port": 16,
+              "middle_id": "L207",
+              "front_id": "A118"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "main_node": 7,
+      "pcbs": [
+        {
+          "pcb": 13,
+          "local_can_id": 0,
+          "ports": [
+            {
+              "port": 1,
+              "middle_id": "L116",
+              "front_id": "A120"
+            },
+            {
+              "port": 2,
+              "middle_id": "L146",
+              "front_id": "A190"
+            },
+            {
+              "port": 3,
+              "middle_id": "L177",
+              "front_id": "A166"
+            },
+            {
+              "port": 4,
+              "middle_id": "L118",
+              "front_id": "A218"
+            },
+            {
+              "port": 5,
+              "middle_id": "L178",
+              "front_id": "A192"
+            },
+            {
+              "port": 6,
+              "middle_id": "L148",
+              "front_id": "A193"
+            },
+            {
+              "port": 7,
+              "middle_id": "L179",
+              "front_id": "A244"
+            },
+            {
+              "port": 8,
+              "middle_id": "L149",
+              "front_id": "A246"
+            },
+            {
+              "port": 9,
+              "middle_id": "L176",
+              "front_id": "A141"
+            },
+            {
+              "port": 10,
+              "middle_id": "L208",
+              "front_id": "A165"
+            },
+            {
+              "port": 11,
+              "middle_id": "L240",
+              "front_id": "A215"
+            },
+            {
+              "port": 12,
+              "middle_id": "L147",
+              "front_id": "A216"
+            },
+            {
+              "port": 13,
+              "middle_id": "L209",
+              "front_id": "A191"
+            },
+            {
+              "port": 14,
+              "middle_id": "L241",
+              "front_id": "A242"
+            },
+            {
+              "port": 15,
+              "middle_id": "L210",
+              "front_id": "A217"
+            },
+            {
+              "port": 16,
+              "middle_id": "L242",
+              "front_id": "A243"
+            }
+          ]
+        },
+        {
+          "pcb": 14,
+          "local_can_id": 1,
+          "ports": [
+            {
+              "port": 1,
+              "middle_id": "L180",
+              "front_id": "A273"
+            },
+            {
+              "port": 2,
+              "middle_id": "L150",
+              "front_id": "A274"
+            },
+            {
+              "port": 3,
+              "middle_id": "L181",
+              "front_id": "A298"
+            },
+            {
+              "port": 4,
+              "middle_id": "L151",
+              "front_id": "A299"
+            },
+            {
+              "port": 5,
+              "middle_id": "L182",
+              "front_id": "A322"
+            },
+            {
+              "port": 6,
+              "middle_id": "L123",
+              "front_id": "A324"
+            },
+            {
+              "port": 7,
+              "middle_id": "L183",
+              "front_id": "A345"
+            },
+            {
+              "port": 8,
+              "middle_id": "L153",
+              "front_id": "A346"
+            },
+            {
+              "port": 9,
+              "middle_id": "L211",
+              "front_id": "A245"
+            },
+            {
+              "port": 10,
+              "middle_id": "L212",
+              "front_id": "A297"
+            },
+            {
+              "port": 11,
+              "middle_id": "L244",
+              "front_id": "A319"
+            },
+            {
+              "port": 12,
+              "middle_id": "L213",
+              "front_id": "A321"
+            },
+            {
+              "port": 13,
+              "middle_id": "L245",
+              "front_id": "A320"
+            },
+            {
+              "port": 14,
+              "middle_id": "L152",
+              "front_id": "A323"
+            },
+            {
+              "port": 15,
+              "middle_id": "L214",
+              "front_id": "A344"
+            },
+            {
+              "port": 16,
+              "middle_id": "L215",
+              "front_id": "A366"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "main_node": 8,
+      "pcbs": [
+        {
+          "pcb": 15,
+          "local_can_id": 0,
+          "ports": [
+            {
+              "port": 1,
+              "middle_id": "L154",
+              "front_id": "A368"
+            },
+            {
+              "port": 2,
+              "middle_id": "L185",
+              "front_id": "A390"
+            },
+            {
+              "port": 3,
+              "middle_id": "L155",
+              "front_id": "A391"
+            },
+            {
+              "port": 4,
+              "middle_id": "L156",
+              "front_id": "A415"
+            },
+            {
+              "port": 5,
+              "middle_id": "L186",
+              "front_id": "A414"
+            },
+            {
+              "port": 6,
+              "middle_id": "L157",
+              "front_id": "A439"
+            },
+            {
+              "port": 7,
+              "middle_id": "L158",
+              "front_id": "A467"
+            },
+            {
+              "port": 8,
+              "middle_id": "L188",
+              "front_id": "A437"
+            },
+            {
+              "port": 9,
+              "middle_id": "L184",
+              "front_id": "A367"
+            },
+            {
+              "port": 10,
+              "middle_id": "L216",
+              "front_id": "A364"
+            },
+            {
+              "port": 11,
+              "middle_id": "L127",
+              "front_id": "A416"
+            },
+            {
+              "port": 12,
+              "middle_id": "L249",
+              "front_id": "A388"
+            },
+            {
+              "port": 13,
+              "middle_id": "L217",
+              "front_id": "A413"
+            },
+            {
+              "port": 14,
+              "middle_id": "L187",
+              "front_id": "A438"
+            },
+            {
+              "port": 15,
+              "middle_id": "L218",
+              "front_id": "A412"
+            },
+            {
+              "port": 16,
+              "middle_id": "L219",
+              "front_id": "A466"
+            }
+          ]
+        },
+        {
+          "pcb": 16,
+          "local_can_id": 1,
+          "ports": [
+            {
+              "port": 1,
+              "middle_id": "L159",
+              "front_id": "A496"
+            },
+            {
+              "port": 2,
+              "middle_id": "L189",
+              "front_id": "A495"
+            },
+            {
+              "port": 3,
+              "middle_id": "L160",
+              "front_id": "A551"
+            },
+            {
+              "port": 4,
+              "middle_id": "L190",
+              "front_id": "A550"
+            },
+            {
+              "port": 5,
+              "middle_id": "L132",
+              "front_id": "A523"
+            },
+            {
+              "port": 6,
+              "middle_id": "L191",
+              "front_id": "A521"
+            },
+            {
+              "port": 7,
+              "middle_id": "L162",
+              "front_id": "A575"
+            },
+            {
+              "port": 8,
+              "middle_id": "L134",
+              "front_id": "A601"
+            },
+            {
+              "port": 9,
+              "middle_id": "L252",
+              "front_id": "A493"
+            },
+            {
+              "port": 10,
+              "middle_id": "L220",
+              "front_id": "A494"
+            },
+            {
+              "port": 11,
+              "middle_id": "L253",
+              "front_id": "A548"
+            },
+            {
+              "port": 12,
+              "middle_id": "L221",
+              "front_id": "A549"
+            },
+            {
+              "port": 13,
+              "middle_id": "L161",
+              "front_id": "A522"
+            },
+            {
+              "port": 14,
+              "middle_id": "L254",
+              "front_id": "A520"
+            },
+            {
+              "port": 15,
+              "middle_id": "L222",
+              "front_id": "A574"
+            },
+            {
+              "port": 16,
+              "middle_id": "L192",
+              "front_id": "A599"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "main_node": 9,
+      "pcbs": [
+        {
+          "pcb": 17,
+          "local_can_id": 0,
+          "ports": [
+            {
+              "port": 1,
+              "middle_id": "L163",
+              "front_id": "A624"
+            },
+            {
+              "port": 2,
+              "middle_id": "L193",
+              "front_id": "A623"
+            },
+            {
+              "port": 3,
+              "middle_id": "L164",
+              "front_id": "A598"
+            },
+            {
+              "port": 4,
+              "middle_id": "L194",
+              "front_id": "A622"
+            },
+            {
+              "port": 5,
+              "middle_id": "L136",
+              "front_id": "A669"
+            },
+            {
+              "port": 6,
+              "middle_id": "L195",
+              "front_id": "A687"
+            },
+            {
+              "port": 7,
+              "middle_id": "L137",
+              "front_id": "A688"
+            },
+            {
+              "port": 8,
+              "middle_id": "L138",
+              "front_id": "A667"
+            },
+            {
+              "port": 9,
+              "middle_id": "L223",
+              "front_id": "A573"
+            },
+            {
+              "port": 10,
+              "middle_id": "L224",
+              "front_id": "A645"
+            },
+            {
+              "port": 11,
+              "middle_id": "L257",
+              "front_id": "A596"
+            },
+            {
+              "port": 12,
+              "middle_id": "L225",
+              "front_id": "A644"
+            },
+            {
+              "port": 13,
+              "middle_id": "L165",
+              "front_id": "A668"
+            },
+            {
+              "port": 14,
+              "middle_id": "L226",
+              "front_id": "A686"
+            },
+            {
+              "port": 15,
+              "middle_id": "L166",
+              "front_id": "A597"
+            },
+            {
+              "port": 16,
+              "middle_id": "L196",
+              "front_id": "A703"
+            }
+          ]
+        },
+        {
+          "pcb": 18,
+          "local_can_id": 1,
+          "ports": [
+            {
+              "port": 1,
+              "middle_id": "L167",
+              "front_id": "A666"
+            },
+            {
+              "port": 2,
+              "middle_id": "L197",
+              "front_id": "A702"
+            },
+            {
+              "port": 3,
+              "middle_id": "L139",
+              "front_id": "A704"
+            },
+            {
+              "port": 4,
+              "middle_id": "L198",
+              "front_id": "A717"
+            },
+            {
+              "port": 5,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 6,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 7,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 8,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 9,
+              "middle_id": "L227",
+              "front_id": "A665"
+            },
+            {
+              "port": 10,
+              "middle_id": "L260",
+              "front_id": "A642"
+            },
+            {
+              "port": 11,
+              "middle_id": "L228",
+              "front_id": "A701"
+            },
+            {
+              "port": 12,
+              "middle_id": "L229",
+              "front_id": "A716"
+            },
+            {
+              "port": 13,
+              "middle_id": "L168",
+              "front_id": "A643"
+            },
+            {
+              "port": 14,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 15,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 16,
+              "middle_id": null,
+              "front_id": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "main_node": 10,
+      "pcbs": [
+        {
+          "pcb": 19,
+          "local_can_id": 0,
+          "ports": [
+            {
+              "port": 1,
+              "middle_id": "L294",
+              "front_id": "A49"
+            },
+            {
+              "port": 2,
+              "middle_id": "L264",
+              "front_id": "A8"
+            },
+            {
+              "port": 3,
+              "middle_id": "L231",
+              "front_id": "A9"
+            },
+            {
+              "port": 4,
+              "middle_id": "L295",
+              "front_id": "A18"
+            },
+            {
+              "port": 5,
+              "middle_id": "L232",
+              "front_id": "A20"
+            },
+            {
+              "port": 6,
+              "middle_id": "L296",
+              "front_id": "A112"
+            },
+            {
+              "port": 7,
+              "middle_id": "L266",
+              "front_id": "A33"
+            },
+            {
+              "port": 8,
+              "middle_id": "L233",
+              "front_id": "A34"
+            },
+            {
+              "port": 9,
+              "middle_id": "L346",
+              "front_id": "A16"
+            },
+            {
+              "port": 10,
+              "middle_id": "L320",
+              "front_id": "A17"
+            },
+            {
+              "port": 11,
+              "middle_id": "L347",
+              "front_id": "A6"
+            },
+            {
+              "port": 12,
+              "middle_id": "L321",
+              "front_id": "A7"
+            },
+            {
+              "port": 13,
+              "middle_id": "L265",
+              "front_id": "A19"
+            },
+            {
+              "port": 14,
+              "middle_id": "L348",
+              "front_id": "A48"
+            },
+            {
+              "port": 15,
+              "middle_id": "L322",
+              "front_id": "A89"
+            },
+            {
+              "port": 16,
+              "middle_id": "L349",
+              "front_id": "A31"
+            }
+          ]
+        },
+        {
+          "pcb": 20,
+          "local_can_id": 1,
+          "ports": [
+            {
+              "port": 1,
+              "middle_id": "L297",
+              "front_id": "A50"
+            },
+            {
+              "port": 2,
+              "middle_id": "L267",
+              "front_id": "A91"
+            },
+            {
+              "port": 3,
+              "middle_id": "L298",
+              "front_id": "A113"
+            },
+            {
+              "port": 4,
+              "middle_id": "L268",
+              "front_id": "A51"
+            },
+            {
+              "port": 5,
+              "middle_id": "L299",
+              "front_id": "A70"
+            },
+            {
+              "port": 6,
+              "middle_id": "L269",
+              "front_id": "A92"
+            },
+            {
+              "port": 7,
+              "middle_id": "L300",
+              "front_id": "A137"
+            },
+            {
+              "port": 8,
+              "middle_id": "L235",
+              "front_id": "A52"
+            },
+            {
+              "port": 9,
+              "middle_id": "L323",
+              "front_id": "A32"
+            },
+            {
+              "port": 10,
+              "middle_id": "L350",
+              "front_id": "A67"
+            },
+            {
+              "port": 11,
+              "middle_id": "L324",
+              "front_id": "A135"
+            },
+            {
+              "port": 12,
+              "middle_id": "L351",
+              "front_id": "A68"
+            },
+            {
+              "port": 13,
+              "middle_id": "L325",
+              "front_id": "A69"
+            },
+            {
+              "port": 14,
+              "middle_id": "L352",
+              "front_id": "A111"
+            },
+            {
+              "port": 15,
+              "middle_id": "L326",
+              "front_id": "A136"
+            },
+            {
+              "port": 16,
+              "middle_id": "L353",
+              "front_id": "A90"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "main_node": 11,
+      "pcbs": [
+        {
+          "pcb": 21,
+          "local_can_id": 0,
+          "ports": [
+            {
+              "port": 1,
+              "middle_id": "L301",
+              "front_id": "A240"
+            },
+            {
+              "port": 2,
+              "middle_id": "L236",
+              "front_id": "A53"
+            },
+            {
+              "port": 3,
+              "middle_id": "L302",
+              "front_id": "A162"
+            },
+            {
+              "port": 4,
+              "middle_id": "L271",
+              "front_id": "A115"
+            },
+            {
+              "port": 5,
+              "middle_id": "L303",
+              "front_id": "A241"
+            },
+            {
+              "port": 6,
+              "middle_id": "L272",
+              "front_id": "A188"
+            },
+            {
+              "port": 7,
+              "middle_id": "L238",
+              "front_id": "A116"
+            },
+            {
+              "port": 8,
+              "middle_id": "L304",
+              "front_id": "A214"
+            },
+            {
+              "port": 9,
+              "middle_id": "L327",
+              "front_id": "A186"
+            },
+            {
+              "port": 10,
+              "middle_id": "L354",
+              "front_id": "A160"
+            },
+            {
+              "port": 11,
+              "middle_id": "L328",
+              "front_id": "A161"
+            },
+            {
+              "port": 12,
+              "middle_id": "L270",
+              "front_id": "A138"
+            },
+            {
+              "port": 13,
+              "middle_id": "L355",
+              "front_id": "A185"
+            },
+            {
+              "port": 14,
+              "middle_id": "L329",
+              "front_id": "A212"
+            },
+            {
+              "port": 15,
+              "middle_id": "L356",
+              "front_id": "A211"
+            },
+            {
+              "port": 16,
+              "middle_id": "L330",
+              "front_id": "A187"
+            }
+          ]
+        },
+        {
+          "pcb": 22,
+          "local_can_id": 1,
+          "ports": [
+            {
+              "port": 1,
+              "middle_id": "L273",
+              "front_id": "A270"
+            },
+            {
+              "port": 2,
+              "middle_id": "L239",
+              "front_id": "A163"
+            },
+            {
+              "port": 3,
+              "middle_id": "L274",
+              "front_id": "A189"
+            },
+            {
+              "port": 4,
+              "middle_id": "L275",
+              "front_id": "A271"
+            },
+            {
+              "port": 5,
+              "middle_id": "L243",
+              "front_id": "A272"
+            },
+            {
+              "port": 6,
+              "middle_id": "L277",
+              "front_id": "A296"
+            },
+            {
+              "port": 7,
+              "middle_id": "L278",
+              "front_id": "A342"
+            },
+            {
+              "port": 8,
+              "middle_id": "L246",
+              "front_id": "A343"
+            },
+            {
+              "port": 9,
+              "middle_id": "L357",
+              "front_id": "A239"
+            },
+            {
+              "port": 10,
+              "middle_id": "L358",
+              "front_id": "A267"
+            },
+            {
+              "port": 11,
+              "middle_id": "L331",
+              "front_id": "A268"
+            },
+            {
+              "port": 12,
+              "middle_id": "L332",
+              "front_id": "A269"
+            },
+            {
+              "port": 13,
+              "middle_id": "L305",
+              "front_id": "A294"
+            },
+            {
+              "port": 14,
+              "middle_id": "L306",
+              "front_id": "A295"
+            },
+            {
+              "port": 15,
+              "middle_id": "L276",
+              "front_id": "A318"
+            },
+            {
+              "port": 16,
+              "middle_id": "L247",
+              "front_id": "A365"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "main_node": 12,
+      "pcbs": [
+        {
+          "pcb": 23,
+          "local_can_id": 0,
+          "ports": [
+            {
+              "port": 1,
+              "middle_id": "L248",
+              "front_id": "A389"
+            },
+            {
+              "port": 2,
+              "middle_id": "L279",
+              "front_id": "A387"
+            },
+            {
+              "port": 3,
+              "middle_id": "L280",
+              "front_id": "A436"
+            },
+            {
+              "port": 4,
+              "middle_id": "L281",
+              "front_id": "A410"
+            },
+            {
+              "port": 5,
+              "middle_id": "L282",
+              "front_id": "A464"
+            },
+            {
+              "port": 6,
+              "middle_id": "L283",
+              "front_id": "A547"
+            },
+            {
+              "port": 7,
+              "middle_id": "L255",
+              "front_id": "A572"
+            },
+            {
+              "port": 8,
+              "middle_id": "L284",
+              "front_id": "A492"
+            },
+            {
+              "port": 9,
+              "middle_id": "L250",
+              "front_id": "A411"
+            },
+            {
+              "port": 10,
+              "middle_id": "L251",
+              "front_id": "A465"
+            },
+            {
+              "port": 11,
+              "middle_id": "L307",
+              "front_id": "A435"
+            },
+            {
+              "port": 12,
+              "middle_id": "L308",
+              "front_id": "A463"
+            },
+            {
+              "port": 13,
+              "middle_id": "L333",
+              "front_id": "A434"
+            },
+            {
+              "port": 14,
+              "middle_id": "L334",
+              "front_id": "A462"
+            },
+            {
+              "port": 15,
+              "middle_id": "L359",
+              "front_id": "A461"
+            },
+            {
+              "port": 16,
+              "middle_id": "L360",
+              "front_id": "A489"
+            }
+          ]
+        },
+        {
+          "pcb": 24,
+          "local_can_id": 1,
+          "ports": [
+            {
+              "port": 1,
+              "middle_id": "L309",
+              "front_id": "A519"
+            },
+            {
+              "port": 2,
+              "middle_id": "L256",
+              "front_id": "A621"
+            },
+            {
+              "port": 3,
+              "middle_id": "L285",
+              "front_id": "A546"
+            },
+            {
+              "port": 4,
+              "middle_id": "L310",
+              "front_id": "A491"
+            },
+            {
+              "port": 5,
+              "middle_id": "L286",
+              "front_id": "A620"
+            },
+            {
+              "port": 6,
+              "middle_id": "L311",
+              "front_id": "A571"
+            },
+            {
+              "port": 7,
+              "middle_id": "L258",
+              "front_id": "A685"
+            },
+            {
+              "port": 8,
+              "middle_id": "L312",
+              "front_id": "A619"
+            },
+            {
+              "port": 9,
+              "middle_id": "L335",
+              "front_id": "A545"
+            },
+            {
+              "port": 10,
+              "middle_id": "L361",
+              "front_id": "A517"
+            },
+            {
+              "port": 11,
+              "middle_id": "L336",
+              "front_id": "A490"
+            },
+            {
+              "port": 12,
+              "middle_id": "L362",
+              "front_id": "A543"
+            },
+            {
+              "port": 13,
+              "middle_id": "L287",
+              "front_id": "A518"
+            },
+            {
+              "port": 14,
+              "middle_id": "L337",
+              "front_id": "A570"
+            },
+            {
+              "port": 15,
+              "middle_id": "L363",
+              "front_id": "A569"
+            },
+            {
+              "port": 16,
+              "middle_id": "L338",
+              "front_id": "A544"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "main_node": 13,
+      "pcbs": [
+        {
+          "pcb": 25,
+          "local_can_id": 0,
+          "ports": [
+            {
+              "port": 1,
+              "middle_id": "L259",
+              "front_id": "A664"
+            },
+            {
+              "port": 2,
+              "middle_id": "L313",
+              "front_id": "A595"
+            },
+            {
+              "port": 3,
+              "middle_id": "L288",
+              "front_id": "A684"
+            },
+            {
+              "port": 4,
+              "middle_id": "L314",
+              "front_id": "A641"
+            },
+            {
+              "port": 5,
+              "middle_id": "L289",
+              "front_id": "A663"
+            },
+            {
+              "port": 6,
+              "middle_id": "L315",
+              "front_id": "A618"
+            },
+            {
+              "port": 7,
+              "middle_id": "L290",
+              "front_id": "A683"
+            },
+            {
+              "port": 8,
+              "middle_id": "L316",
+              "front_id": "A682"
+            },
+            {
+              "port": 9,
+              "middle_id": "L364",
+              "front_id": "A640"
+            },
+            {
+              "port": 10,
+              "middle_id": "L339",
+              "front_id": "A594"
+            },
+            {
+              "port": 11,
+              "middle_id": "L365",
+              "front_id": "A616"
+            },
+            {
+              "port": 12,
+              "middle_id": "L340",
+              "front_id": "A662"
+            },
+            {
+              "port": 13,
+              "middle_id": "L366",
+              "front_id": "A661"
+            },
+            {
+              "port": 14,
+              "middle_id": "L341",
+              "front_id": "A593"
+            },
+            {
+              "port": 15,
+              "middle_id": "L367",
+              "front_id": "A639"
+            },
+            {
+              "port": 16,
+              "middle_id": "L342",
+              "front_id": "A698"
+            }
+          ]
+        },
+        {
+          "pcb": 26,
+          "local_can_id": 1,
+          "ports": [
+            {
+              "port": 1,
+              "middle_id": "L261",
+              "front_id": "A700"
+            },
+            {
+              "port": 2,
+              "middle_id": "L291",
+              "front_id": "A699"
+            },
+            {
+              "port": 3,
+              "middle_id": "L317",
+              "front_id": "A617"
+            },
+            {
+              "port": 4,
+              "middle_id": "L262",
+              "front_id": "A715"
+            },
+            {
+              "port": 5,
+              "middle_id": "L318",
+              "front_id": "A713"
+            },
+            {
+              "port": 6,
+              "middle_id": "L263",
+              "front_id": "A726"
+            },
+            {
+              "port": 7,
+              "middle_id": "L293",
+              "front_id": "A725"
+            },
+            {
+              "port": 8,
+              "middle_id": "L319",
+              "front_id": "A681"
+            },
+            {
+              "port": 9,
+              "middle_id": "L368",
+              "front_id": "A680"
+            },
+            {
+              "port": 10,
+              "middle_id": "L343",
+              "front_id": "A724"
+            },
+            {
+              "port": 11,
+              "middle_id": "L369",
+              "front_id": "A723"
+            },
+            {
+              "port": 12,
+              "middle_id": "L292",
+              "front_id": "A714"
+            },
+            {
+              "port": 13,
+              "middle_id": "L344",
+              "front_id": "A712"
+            },
+            {
+              "port": 14,
+              "middle_id": "L370",
+              "front_id": "A711"
+            },
+            {
+              "port": 15,
+              "middle_id": "L345",
+              "front_id": "A697"
+            },
+            {
+              "port": 16,
+              "middle_id": "L371",
+              "front_id": "A696"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "main_node": 14,
+      "pcbs": [
+        {
+          "pcb": 27,
+          "local_can_id": 0,
+          "ports": [
+            {
+              "port": 1,
+              "middle_id": "L372",
+              "front_id": "A5"
+            },
+            {
+              "port": 2,
+              "middle_id": "L398",
+              "front_id": "A4"
+            },
+            {
+              "port": 3,
+              "middle_id": "L373",
+              "front_id": "A30"
+            },
+            {
+              "port": 4,
+              "middle_id": "L399",
+              "front_id": "A29"
+            },
+            {
+              "port": 5,
+              "middle_id": "L451",
+              "front_id": "A12"
+            },
+            {
+              "port": 6,
+              "middle_id": "L374",
+              "front_id": "A15"
+            },
+            {
+              "port": 7,
+              "middle_id": "L400",
+              "front_id": "A3"
+            },
+            {
+              "port": 8,
+              "middle_id": "L375",
+              "front_id": "A47"
+            },
+            {
+              "port": 9,
+              "middle_id": "L424",
+              "front_id": "A14"
+            },
+            {
+              "port": 10,
+              "middle_id": "L450",
+              "front_id": "A13"
+            },
+            {
+              "port": 11,
+              "middle_id": "L480",
+              "front_id": "A1"
+            },
+            {
+              "port": 12,
+              "middle_id": "L425",
+              "front_id": "A28"
+            },
+            {
+              "port": 13,
+              "middle_id": "L481",
+              "front_id": "A86"
+            },
+            {
+              "port": 14,
+              "middle_id": "L426",
+              "front_id": "A2"
+            },
+            {
+              "port": 15,
+              "middle_id": "L452",
+              "front_id": "A27"
+            },
+            {
+              "port": 16,
+              "middle_id": "L482",
+              "front_id": "A11"
+            }
+          ]
+        },
+        {
+          "pcb": 28,
+          "local_can_id": 1,
+          "ports": [
+            {
+              "port": 1,
+              "middle_id": "L401",
+              "front_id": "A46"
+            },
+            {
+              "port": 2,
+              "middle_id": "L376",
+              "front_id": "A88"
+            },
+            {
+              "port": 3,
+              "middle_id": "L402",
+              "front_id": "A110"
+            },
+            {
+              "port": 4,
+              "middle_id": "L377",
+              "front_id": "A66"
+            },
+            {
+              "port": 5,
+              "middle_id": "L403",
+              "front_id": "A65"
+            },
+            {
+              "port": 6,
+              "middle_id": "L378",
+              "front_id": "A134"
+            },
+            {
+              "port": 7,
+              "middle_id": "L404",
+              "front_id": "A133"
+            },
+            {
+              "port": 8,
+              "middle_id": "L379",
+              "front_id": "A87"
+            },
+            {
+              "port": 9,
+              "middle_id": "L427",
+              "front_id": "A45"
+            },
+            {
+              "port": 10,
+              "middle_id": "L453",
+              "front_id": "A64"
+            },
+            {
+              "port": 11,
+              "middle_id": "L428",
+              "front_id": "A109"
+            },
+            {
+              "port": 12,
+              "middle_id": "L454",
+              "front_id": "A26"
+            },
+            {
+              "port": 13,
+              "middle_id": "L429",
+              "front_id": "A44"
+            },
+            {
+              "port": 14,
+              "middle_id": "L484",
+              "front_id": "A43"
+            },
+            {
+              "port": 15,
+              "middle_id": "L430",
+              "front_id": "A157"
+            },
+            {
+              "port": 16,
+              "middle_id": "L455",
+              "front_id": "A85"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "main_node": 15,
+      "pcbs": [
+        {
+          "pcb": 29,
+          "local_can_id": 0,
+          "ports": [
+            {
+              "port": 1,
+              "middle_id": "L405",
+              "front_id": "A158"
+            },
+            {
+              "port": 2,
+              "middle_id": "L380",
+              "front_id": "A159"
+            },
+            {
+              "port": 3,
+              "middle_id": "L406",
+              "front_id": "A183"
+            },
+            {
+              "port": 4,
+              "middle_id": "L456",
+              "front_id": "A131"
+            },
+            {
+              "port": 5,
+              "middle_id": "L381",
+              "front_id": "A184"
+            },
+            {
+              "port": 6,
+              "middle_id": "L407",
+              "front_id": "A237"
+            },
+            {
+              "port": 7,
+              "middle_id": "L382",
+              "front_id": "A210"
+            },
+            {
+              "port": 8,
+              "middle_id": "L408",
+              "front_id": "A209"
+            },
+            {
+              "port": 9,
+              "middle_id": "L431",
+              "front_id": "A108"
+            },
+            {
+              "port": 10,
+              "middle_id": "L485",
+              "front_id": "A42"
+            },
+            {
+              "port": 11,
+              "middle_id": "L432",
+              "front_id": "A182"
+            },
+            {
+              "port": 12,
+              "middle_id": "L457",
+              "front_id": "A107"
+            },
+            {
+              "port": 13,
+              "middle_id": "L433",
+              "front_id": "A236"
+            },
+            {
+              "port": 14,
+              "middle_id": "L458",
+              "front_id": "A155"
+            },
+            {
+              "port": 15,
+              "middle_id": "L487",
+              "front_id": "A106"
+            },
+            {
+              "port": 16,
+              "middle_id": "L434",
+              "front_id": "A181"
+            }
+          ]
+        },
+        {
+          "pcb": 30,
+          "local_can_id": 1,
+          "ports": [
+            {
+              "port": 1,
+              "middle_id": "L383",
+              "front_id": "A238"
+            },
+            {
+              "port": 2,
+              "middle_id": "L384",
+              "front_id": "A266"
+            },
+            {
+              "port": 3,
+              "middle_id": "L409",
+              "front_id": "A265"
+            },
+            {
+              "port": 4,
+              "middle_id": "L410",
+              "front_id": "A293"
+            },
+            {
+              "port": 5,
+              "middle_id": "L435",
+              "front_id": "A264"
+            },
+            {
+              "port": 6,
+              "middle_id": "L460",
+              "front_id": "A207"
+            },
+            {
+              "port": 7,
+              "middle_id": "L492",
+              "front_id": "A262"
+            },
+            {
+              "port": 8,
+              "middle_id": "L496",
+              "front_id": "A362"
+            },
+            {
+              "port": 9,
+              "middle_id": "L459",
+              "front_id": "A208"
+            },
+            {
+              "port": 10,
+              "middle_id": "L488",
+              "front_id": "A180"
+            },
+            {
+              "port": 11,
+              "middle_id": "L436",
+              "front_id": "A317"
+            },
+            {
+              "port": 12,
+              "middle_id": "L461",
+              "front_id": "A292"
+            },
+            {
+              "port": 13,
+              "middle_id": "L462",
+              "front_id": "A341"
+            },
+            {
+              "port": 14,
+              "middle_id": "L463",
+              "front_id": "A291"
+            },
+            {
+              "port": 15,
+              "middle_id": "L464",
+              "front_id": "A363"
+            },
+            {
+              "port": 16,
+              "middle_id": "L495",
+              "front_id": "A340"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "main_node": 16,
+      "pcbs": [
+        {
+          "pcb": 31,
+          "local_can_id": 0,
+          "ports": [
+            {
+              "port": 1,
+              "middle_id": "L499",
+              "front_id": "A408"
+            },
+            {
+              "port": 2,
+              "middle_id": "L467",
+              "front_id": "A432"
+            },
+            {
+              "port": 3,
+              "middle_id": "L437",
+              "front_id": "A409"
+            },
+            {
+              "port": 4,
+              "middle_id": "L438",
+              "front_id": "A433"
+            },
+            {
+              "port": 5,
+              "middle_id": "L411",
+              "front_id": "A458"
+            },
+            {
+              "port": 6,
+              "middle_id": "L412",
+              "front_id": "A459"
+            },
+            {
+              "port": 7,
+              "middle_id": "L385",
+              "front_id": "A460"
+            },
+            {
+              "port": 8,
+              "middle_id": "L386",
+              "front_id": "A488"
+            },
+            {
+              "port": 9,
+              "middle_id": "L497",
+              "front_id": "A385"
+            },
+            {
+              "port": 10,
+              "middle_id": "L465",
+              "front_id": "A386"
+            },
+            {
+              "port": 11,
+              "middle_id": "L466",
+              "front_id": "A431"
+            },
+            {
+              "port": 12,
+              "middle_id": "L500",
+              "front_id": "A455"
+            },
+            {
+              "port": 13,
+              "middle_id": "L468",
+              "front_id": "A456"
+            },
+            {
+              "port": 14,
+              "middle_id": "L469",
+              "front_id": "A538"
+            },
+            {
+              "port": 15,
+              "middle_id": "L504",
+              "front_id": "A457"
+            },
+            {
+              "port": 16,
+              "middle_id": "L470",
+              "front_id": "A486"
+            }
+          ]
+        },
+        {
+          "pcb": 32,
+          "local_can_id": 1,
+          "ports": [
+            {
+              "port": 1,
+              "middle_id": "L413",
+              "front_id": "A540"
+            },
+            {
+              "port": 2,
+              "middle_id": "L387",
+              "front_id": "A516"
+            },
+            {
+              "port": 3,
+              "middle_id": "L414",
+              "front_id": "A515"
+            },
+            {
+              "port": 4,
+              "middle_id": "L388",
+              "front_id": "A542"
+            },
+            {
+              "port": 5,
+              "middle_id": "L473",
+              "front_id": "A589"
+            },
+            {
+              "port": 6,
+              "middle_id": "L415",
+              "front_id": "A541"
+            },
+            {
+              "port": 7,
+              "middle_id": "L389",
+              "front_id": "A568"
+            },
+            {
+              "port": 8,
+              "middle_id": "L416",
+              "front_id": "A567"
+            },
+            {
+              "port": 9,
+              "middle_id": "L439",
+              "front_id": "A513"
+            },
+            {
+              "port": 10,
+              "middle_id": "L505",
+              "front_id": "A611"
+            },
+            {
+              "port": 11,
+              "middle_id": "L471",
+              "front_id": "A539"
+            },
+            {
+              "port": 12,
+              "middle_id": "L440",
+              "front_id": "A487"
+            },
+            {
+              "port": 13,
+              "middle_id": "L472",
+              "front_id": "A612"
+            },
+            {
+              "port": 14,
+              "middle_id": "L441",
+              "front_id": "A565"
+            },
+            {
+              "port": 15,
+              "middle_id": "L507",
+              "front_id": "A674"
+            },
+            {
+              "port": 16,
+              "middle_id": "L442",
+              "front_id": "A613"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "main_node": 17,
+      "pcbs": [
+        {
+          "pcb": 33,
+          "local_can_id": 0,
+          "ports": [
+            {
+              "port": 1,
+              "middle_id": "L390",
+              "front_id": "A637"
+            },
+            {
+              "port": 2,
+              "middle_id": "L417",
+              "front_id": "A591"
+            },
+            {
+              "port": 3,
+              "middle_id": "L391",
+              "front_id": "A592"
+            },
+            {
+              "port": 4,
+              "middle_id": "L418",
+              "front_id": "A658"
+            },
+            {
+              "port": 5,
+              "middle_id": "L392",
+              "front_id": "A659"
+            },
+            {
+              "port": 6,
+              "middle_id": "L419",
+              "front_id": "A615"
+            },
+            {
+              "port": 7,
+              "middle_id": "L393",
+              "front_id": "A660"
+            },
+            {
+              "port": 8,
+              "middle_id": "L420",
+              "front_id": "A678"
+            },
+            {
+              "port": 9,
+              "middle_id": "L474",
+              "front_id": "A675"
+            },
+            {
+              "port": 10,
+              "middle_id": "L443",
+              "front_id": "A590"
+            },
+            {
+              "port": 11,
+              "middle_id": "L508",
+              "front_id": "A656"
+            },
+            {
+              "port": 12,
+              "middle_id": "L444",
+              "front_id": "A657"
+            },
+            {
+              "port": 13,
+              "middle_id": "L475",
+              "front_id": "A692"
+            },
+            {
+              "port": 14,
+              "middle_id": "L445",
+              "front_id": "A614"
+            },
+            {
+              "port": 15,
+              "middle_id": "L476",
+              "front_id": "A676"
+            },
+            {
+              "port": 16,
+              "middle_id": "L446",
+              "front_id": "A677"
+            }
+          ]
+        },
+        {
+          "pcb": 34,
+          "local_can_id": 1,
+          "ports": [
+            {
+              "port": 1,
+              "middle_id": "L394",
+              "front_id": "A695"
+            },
+            {
+              "port": 2,
+              "middle_id": "L421",
+              "front_id": "A638"
+            },
+            {
+              "port": 3,
+              "middle_id": "L395",
+              "front_id": "A721"
+            },
+            {
+              "port": 4,
+              "middle_id": "L478",
+              "front_id": "A693"
+            },
+            {
+              "port": 5,
+              "middle_id": "L422",
+              "front_id": "A709"
+            },
+            {
+              "port": 6,
+              "middle_id": "L396",
+              "front_id": "A710"
+            },
+            {
+              "port": 7,
+              "middle_id": "L423",
+              "front_id": "A679"
+            },
+            {
+              "port": 8,
+              "middle_id": "L397",
+              "front_id": "A722"
+            },
+            {
+              "port": 9,
+              "middle_id": "L510",
+              "front_id": "A706"
+            },
+            {
+              "port": 10,
+              "middle_id": "L477",
+              "front_id": "A707"
+            },
+            {
+              "port": 11,
+              "middle_id": "L447",
+              "front_id": "A719"
+            },
+            {
+              "port": 12,
+              "middle_id": "L511",
+              "front_id": "A636"
+            },
+            {
+              "port": 13,
+              "middle_id": "L448",
+              "front_id": "A694"
+            },
+            {
+              "port": 14,
+              "middle_id": "L512",
+              "front_id": "A718"
+            },
+            {
+              "port": 15,
+              "middle_id": "L479",
+              "front_id": "A708"
+            },
+            {
+              "port": 16,
+              "middle_id": "L449",
+              "front_id": "A720"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "main_node": 18,
+      "pcbs": [
+        {
+          "pcb": 35,
+          "local_can_id": 0,
+          "ports": [
+            {
+              "port": 1,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 2,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 3,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 4,
+              "middle_id": "L575",
+              "front_id": "A23"
+            },
+            {
+              "port": 5,
+              "middle_id": "L514",
+              "front_id": "A10"
+            },
+            {
+              "port": 6,
+              "middle_id": "L515",
+              "front_id": "A25"
+            },
+            {
+              "port": 7,
+              "middle_id": "L483",
+              "front_id": "A132"
+            },
+            {
+              "port": 8,
+              "middle_id": "L516",
+              "front_id": "A62"
+            },
+            {
+              "port": 9,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 10,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 11,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 12,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 13,
+              "middle_id": "L545",
+              "front_id": "A63"
+            },
+            {
+              "port": 14,
+              "middle_id": "L604",
+              "front_id": "A83"
+            },
+            {
+              "port": 15,
+              "middle_id": "L576",
+              "front_id": "A61"
+            },
+            {
+              "port": 16,
+              "middle_id": "L546",
+              "front_id": "A24"
+            }
+          ]
+        },
+        {
+          "pcb": 36,
+          "local_can_id": 1,
+          "ports": [
+            {
+              "port": 1,
+              "middle_id": "L547",
+              "front_id": "A41"
+            },
+            {
+              "port": 2,
+              "middle_id": "L577",
+              "front_id": "A60"
+            },
+            {
+              "port": 3,
+              "middle_id": "L517",
+              "front_id": "A84"
+            },
+            {
+              "port": 4,
+              "middle_id": "L578",
+              "front_id": "A129"
+            },
+            {
+              "port": 5,
+              "middle_id": "L518",
+              "front_id": "A130"
+            },
+            {
+              "port": 6,
+              "middle_id": "L486",
+              "front_id": "A156"
+            },
+            {
+              "port": 7,
+              "middle_id": "L519",
+              "front_id": "A82"
+            },
+            {
+              "port": 8,
+              "middle_id": "L520",
+              "front_id": "A104"
+            },
+            {
+              "port": 9,
+              "middle_id": "L605",
+              "front_id": "A39"
+            },
+            {
+              "port": 10,
+              "middle_id": "L606",
+              "front_id": "A59"
+            },
+            {
+              "port": 11,
+              "middle_id": "L548",
+              "front_id": "A40"
+            },
+            {
+              "port": 12,
+              "middle_id": "L607",
+              "front_id": "A58"
+            },
+            {
+              "port": 13,
+              "middle_id": "L549",
+              "front_id": "A105"
+            },
+            {
+              "port": 14,
+              "middle_id": "L579",
+              "front_id": "A128"
+            },
+            {
+              "port": 15,
+              "middle_id": "L550",
+              "front_id": "A154"
+            },
+            {
+              "port": 16,
+              "middle_id": "L580",
+              "front_id": "A103"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "main_node": 19,
+      "pcbs": [
+        {
+          "pcb": 37,
+          "local_can_id": 0,
+          "ports": [
+            {
+              "port": 1,
+              "middle_id": "L551",
+              "front_id": "A206"
+            },
+            {
+              "port": 2,
+              "middle_id": "L521",
+              "front_id": "A153"
+            },
+            {
+              "port": 3,
+              "middle_id": "L489",
+              "front_id": "A235"
+            },
+            {
+              "port": 4,
+              "middle_id": "L582",
+              "front_id": "A205"
+            },
+            {
+              "port": 5,
+              "middle_id": "L522",
+              "front_id": "A178"
+            },
+            {
+              "port": 6,
+              "middle_id": "L490",
+              "front_id": "A179"
+            },
+            {
+              "port": 7,
+              "middle_id": "L523",
+              "front_id": "A233"
+            },
+            {
+              "port": 8,
+              "middle_id": "L491",
+              "front_id": "A263"
+            },
+            {
+              "port": 9,
+              "middle_id": "L609",
+              "front_id": "A126"
+            },
+            {
+              "port": 10,
+              "middle_id": "L581",
+              "front_id": "A152"
+            },
+            {
+              "port": 11,
+              "middle_id": "L552",
+              "front_id": "A234"
+            },
+            {
+              "port": 12,
+              "middle_id": "L611",
+              "front_id": "A204"
+            },
+            {
+              "port": 13,
+              "middle_id": "L553",
+              "front_id": "A177"
+            },
+            {
+              "port": 14,
+              "middle_id": "L583",
+              "front_id": "A176"
+            },
+            {
+              "port": 15,
+              "middle_id": "L554",
+              "front_id": "A232"
+            },
+            {
+              "port": 16,
+              "middle_id": "L584",
+              "front_id": "A231"
+            }
+          ]
+        },
+        {
+          "pcb": 38,
+          "local_can_id": 1,
+          "ports": [
+            {
+              "port": 1,
+              "middle_id": "L524",
+              "front_id": "A261"
+            },
+            {
+              "port": 2,
+              "middle_id": "L525",
+              "front_id": "A290"
+            },
+            {
+              "port": 3,
+              "middle_id": "L493",
+              "front_id": "A316"
+            },
+            {
+              "port": 4,
+              "middle_id": "L526",
+              "front_id": "A314"
+            },
+            {
+              "port": 5,
+              "middle_id": "L494",
+              "front_id": "A315"
+            },
+            {
+              "port": 6,
+              "middle_id": "L587",
+              "front_id": "A312"
+            },
+            {
+              "port": 7,
+              "middle_id": "L527",
+              "front_id": "A339"
+            },
+            {
+              "port": 8,
+              "middle_id": "L528",
+              "front_id": "A361"
+            },
+            {
+              "port": 9,
+              "middle_id": "L555",
+              "front_id": "A260"
+            },
+            {
+              "port": 10,
+              "middle_id": "L585",
+              "front_id": "A259"
+            },
+            {
+              "port": 11,
+              "middle_id": "L556",
+              "front_id": "A289"
+            },
+            {
+              "port": 12,
+              "middle_id": "L586",
+              "front_id": "A288"
+            },
+            {
+              "port": 13,
+              "middle_id": "L557",
+              "front_id": "A313"
+            },
+            {
+              "port": 14,
+              "middle_id": "L616",
+              "front_id": "A311"
+            },
+            {
+              "port": 15,
+              "middle_id": "L558",
+              "front_id": "A338"
+            },
+            {
+              "port": 16,
+              "middle_id": "L588",
+              "front_id": "A337"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "main_node": 20,
+      "pcbs": [
+        {
+          "pcb": 39,
+          "local_can_id": 0,
+          "ports": [
+            {
+              "port": 1,
+              "middle_id": "L559",
+              "front_id": "A360"
+            },
+            {
+              "port": 2,
+              "middle_id": "L529",
+              "front_id": "A384"
+            },
+            {
+              "port": 3,
+              "middle_id": "L620",
+              "front_id": "A403"
+            },
+            {
+              "port": 4,
+              "middle_id": "L498",
+              "front_id": "A407"
+            },
+            {
+              "port": 5,
+              "middle_id": "L530",
+              "front_id": "A406"
+            },
+            {
+              "port": 6,
+              "middle_id": "L562",
+              "front_id": "A429"
+            },
+            {
+              "port": 7,
+              "middle_id": "L531",
+              "front_id": "A430"
+            },
+            {
+              "port": 8,
+              "middle_id": "L532",
+              "front_id": "A482"
+            },
+            {
+              "port": 9,
+              "middle_id": "L589",
+              "front_id": "A359"
+            },
+            {
+              "port": 10,
+              "middle_id": "L560",
+              "front_id": "A383"
+            },
+            {
+              "port": 11,
+              "middle_id": "L590",
+              "front_id": "A382"
+            },
+            {
+              "port": 12,
+              "middle_id": "L591",
+              "front_id": "A404"
+            },
+            {
+              "port": 13,
+              "middle_id": "L561",
+              "front_id": "A405"
+            },
+            {
+              "port": 14,
+              "middle_id": "L592",
+              "front_id": "A428"
+            },
+            {
+              "port": 15,
+              "middle_id": "L593",
+              "front_id": "A453"
+            },
+            {
+              "port": 16,
+              "middle_id": "L563",
+              "front_id": "A454"
+            }
+          ]
+        },
+        {
+          "pcb": 40,
+          "local_can_id": 1,
+          "ports": [
+            {
+              "port": 1,
+              "middle_id": "L501",
+              "front_id": "A484"
+            },
+            {
+              "port": 2,
+              "middle_id": "L533",
+              "front_id": "A510"
+            },
+            {
+              "port": 3,
+              "middle_id": "L502",
+              "front_id": "A485"
+            },
+            {
+              "port": 4,
+              "middle_id": "L534",
+              "front_id": "A536"
+            },
+            {
+              "port": 5,
+              "middle_id": "L596",
+              "front_id": "A511"
+            },
+            {
+              "port": 6,
+              "middle_id": "L503",
+              "front_id": "A512"
+            },
+            {
+              "port": 7,
+              "middle_id": "L535",
+              "front_id": "A562"
+            },
+            {
+              "port": 8,
+              "middle_id": "L567",
+              "front_id": "A586"
+            },
+            {
+              "port": 9,
+              "middle_id": "L594",
+              "front_id": "A481"
+            },
+            {
+              "port": 10,
+              "middle_id": "L564",
+              "front_id": "A483"
+            },
+            {
+              "port": 11,
+              "middle_id": "L595",
+              "front_id": "A534"
+            },
+            {
+              "port": 12,
+              "middle_id": "L565",
+              "front_id": "A535"
+            },
+            {
+              "port": 13,
+              "middle_id": "L625",
+              "front_id": "A509"
+            },
+            {
+              "port": 14,
+              "middle_id": "L566",
+              "front_id": "A561"
+            },
+            {
+              "port": 15,
+              "middle_id": "L597",
+              "front_id": "A537"
+            },
+            {
+              "port": 16,
+              "middle_id": "L627",
+              "front_id": "A584"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "main_node": 21,
+      "pcbs": [
+        {
+          "pcb": 41,
+          "local_can_id": 0,
+          "ports": [
+            {
+              "port": 1,
+              "middle_id": "L536",
+              "front_id": "A563"
+            },
+            {
+              "port": 2,
+              "middle_id": "L537",
+              "front_id": "A610"
+            },
+            {
+              "port": 3,
+              "middle_id": "L506",
+              "front_id": "A514"
+            },
+            {
+              "port": 4,
+              "middle_id": "L538",
+              "front_id": "A588"
+            },
+            {
+              "port": 5,
+              "middle_id": "L600",
+              "front_id": "A671"
+            },
+            {
+              "port": 6,
+              "middle_id": "L539",
+              "front_id": "A634"
+            },
+            {
+              "port": 7,
+              "middle_id": "L601",
+              "front_id": "A564"
+            },
+            {
+              "port": 8,
+              "middle_id": "L571",
+              "front_id": "A673"
+            },
+            {
+              "port": 9,
+              "middle_id": "L598",
+              "front_id": "A608"
+            },
+            {
+              "port": 10,
+              "middle_id": "L568",
+              "front_id": "A609"
+            },
+            {
+              "port": 11,
+              "middle_id": "L599",
+              "front_id": "A631"
+            },
+            {
+              "port": 12,
+              "middle_id": "L569",
+              "front_id": "A632"
+            },
+            {
+              "port": 13,
+              "middle_id": "L629",
+              "front_id": "A651"
+            },
+            {
+              "port": 14,
+              "middle_id": "L570",
+              "front_id": "A672"
+            },
+            {
+              "port": 15,
+              "middle_id": "L630",
+              "front_id": "A652"
+            },
+            {
+              "port": 16,
+              "middle_id": "L631",
+              "front_id": "A653"
+            }
+          ]
+        },
+        {
+          "pcb": 42,
+          "local_can_id": 1,
+          "ports": [
+            {
+              "port": 1,
+              "middle_id": "L540",
+              "front_id": "A655"
+            },
+            {
+              "port": 2,
+              "middle_id": "L509",
+              "front_id": "A635"
+            },
+            {
+              "port": 3,
+              "middle_id": "L541",
+              "front_id": "A566"
+            },
+            {
+              "port": 4,
+              "middle_id": "L542",
+              "front_id": "A705"
+            },
+            {
+              "port": 5,
+              "middle_id": "L603",
+              "front_id": "A689"
+            },
+            {
+              "port": 6,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 7,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 8,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 9,
+              "middle_id": "L572",
+              "front_id": "A690"
+            },
+            {
+              "port": 10,
+              "middle_id": "L602",
+              "front_id": "A654"
+            },
+            {
+              "port": 11,
+              "middle_id": "L632",
+              "front_id": "A633"
+            },
+            {
+              "port": 12,
+              "middle_id": "L573",
+              "front_id": "A691"
+            },
+            {
+              "port": 13,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 14,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 15,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 16,
+              "middle_id": null,
+              "front_id": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "main_node": 22,
+      "pcbs": [
+        {
+          "pcb": 43,
+          "local_can_id": 0,
+          "ports": [
+            {
+              "port": 1,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 2,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 3,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 4,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 5,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 6,
+              "middle_id": "L633",
+              "front_id": "A81"
+            },
+            {
+              "port": 7,
+              "middle_id": "L634",
+              "front_id": "A80"
+            },
+            {
+              "port": 8,
+              "middle_id": "L635",
+              "front_id": "A102"
+            },
+            {
+              "port": 9,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 10,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 11,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 12,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 13,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 14,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 15,
+              "middle_id": "L658",
+              "front_id": "A57"
+            },
+            {
+              "port": 16,
+              "middle_id": "L659",
+              "front_id": "A79"
+            }
+          ]
+        },
+        {
+          "pcb": 44,
+          "local_can_id": 1,
+          "ports": [
+            {
+              "port": 1,
+              "middle_id": "L608",
+              "front_id": "A127"
+            },
+            {
+              "port": 2,
+              "middle_id": "L660",
+              "front_id": "A78"
+            },
+            {
+              "port": 3,
+              "middle_id": "L636",
+              "front_id": "A101"
+            },
+            {
+              "port": 4,
+              "middle_id": "L637",
+              "front_id": "A150"
+            },
+            {
+              "port": 5,
+              "middle_id": "L661",
+              "front_id": "A100"
+            },
+            {
+              "port": 6,
+              "middle_id": "L610",
+              "front_id": "A151"
+            },
+            {
+              "port": 7,
+              "middle_id": "L638",
+              "front_id": "A149"
+            },
+            {
+              "port": 8,
+              "middle_id": "L639",
+              "front_id": "A202"
+            },
+            {
+              "port": 9,
+              "middle_id": "L683",
+              "front_id": "A125"
+            },
+            {
+              "port": 10,
+              "middle_id": "L684",
+              "front_id": "A124"
+            },
+            {
+              "port": 11,
+              "middle_id": "L704",
+              "front_id": "A174"
+            },
+            {
+              "port": 12,
+              "middle_id": "L685",
+              "front_id": "A148"
+            },
+            {
+              "port": 13,
+              "middle_id": "L662",
+              "front_id": "A123"
+            },
+            {
+              "port": 14,
+              "middle_id": "L705",
+              "front_id": "A173"
+            },
+            {
+              "port": 15,
+              "middle_id": "L686",
+              "front_id": "A147"
+            },
+            {
+              "port": 16,
+              "middle_id": "L663",
+              "front_id": "A203"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "main_node": 23,
+      "pcbs": [
+        {
+          "pcb": 45,
+          "local_can_id": 0,
+          "ports": [
+            {
+              "port": 1,
+              "middle_id": "L664",
+              "front_id": "A201"
+            },
+            {
+              "port": 2,
+              "middle_id": "L640",
+              "front_id": "A200"
+            },
+            {
+              "port": 3,
+              "middle_id": "L612",
+              "front_id": "A175"
+            },
+            {
+              "port": 4,
+              "middle_id": "L613",
+              "front_id": "A230"
+            },
+            {
+              "port": 5,
+              "middle_id": "L641",
+              "front_id": "A257"
+            },
+            {
+              "port": 6,
+              "middle_id": "L614",
+              "front_id": "A258"
+            },
+            {
+              "port": 7,
+              "middle_id": "L642",
+              "front_id": "A286"
+            },
+            {
+              "port": 8,
+              "middle_id": "L615",
+              "front_id": "A287"
+            },
+            {
+              "port": 9,
+              "middle_id": "L687",
+              "front_id": "A172"
+            },
+            {
+              "port": 10,
+              "middle_id": "L688",
+              "front_id": "A198"
+            },
+            {
+              "port": 11,
+              "middle_id": "L665",
+              "front_id": "A199"
+            },
+            {
+              "port": 12,
+              "middle_id": "L689",
+              "front_id": "A226"
+            },
+            {
+              "port": 13,
+              "middle_id": "L666",
+              "front_id": "A256"
+            },
+            {
+              "port": 14,
+              "middle_id": "L690",
+              "front_id": "A284"
+            },
+            {
+              "port": 15,
+              "middle_id": "L667",
+              "front_id": "A285"
+            },
+            {
+              "port": 16,
+              "middle_id": "L691",
+              "front_id": "A308"
+            }
+          ]
+        },
+        {
+          "pcb": 50,
+          "local_can_id": 1,
+          "ports": [
+            {
+              "port": 1,
+              "middle_id": "L706",
+              "front_id": "A229"
+            },
+            {
+              "port": 2,
+              "middle_id": "L735",
+              "front_id": "A253"
+            },
+            {
+              "port": 3,
+              "middle_id": "L722",
+              "front_id": "A227"
+            },
+            {
+              "port": 4,
+              "middle_id": "L707",
+              "front_id": "A228"
+            },
+            {
+              "port": 5,
+              "middle_id": "L723",
+              "front_id": "A255"
+            },
+            {
+              "port": 6,
+              "middle_id": "L708",
+              "front_id": "A225"
+            },
+            {
+              "port": 7,
+              "middle_id": "L724",
+              "front_id": "A254"
+            },
+            {
+              "port": 8,
+              "middle_id": "L709",
+              "front_id": "A283"
+            },
+            {
+              "port": 9,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 10,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 11,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 12,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 13,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 14,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 15,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 16,
+              "middle_id": null,
+              "front_id": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "main_node": 24,
+      "pcbs": [
+        {
+          "pcb": 46,
+          "local_can_id": 0,
+          "ports": [
+            {
+              "port": 1,
+              "middle_id": "L643",
+              "front_id": "A310"
+            },
+            {
+              "port": 2,
+              "middle_id": "L644",
+              "front_id": "A335"
+            },
+            {
+              "port": 3,
+              "middle_id": "L617",
+              "front_id": "A336"
+            },
+            {
+              "port": 4,
+              "middle_id": "L645",
+              "front_id": "A357"
+            },
+            {
+              "port": 5,
+              "middle_id": "L618",
+              "front_id": "A358"
+            },
+            {
+              "port": 6,
+              "middle_id": "L619",
+              "front_id": "A381"
+            },
+            {
+              "port": 7,
+              "middle_id": "L646",
+              "front_id": "A380"
+            },
+            {
+              "port": 8,
+              "middle_id": "L647",
+              "front_id": "A402"
+            },
+            {
+              "port": 9,
+              "middle_id": "L668",
+              "front_id": "A309"
+            },
+            {
+              "port": 10,
+              "middle_id": "L669",
+              "front_id": "A334"
+            },
+            {
+              "port": 11,
+              "middle_id": "L692",
+              "front_id": "A333"
+            },
+            {
+              "port": 12,
+              "middle_id": "L693",
+              "front_id": "A355"
+            },
+            {
+              "port": 13,
+              "middle_id": "L670",
+              "front_id": "A356"
+            },
+            {
+              "port": 14,
+              "middle_id": "L694",
+              "front_id": "A378"
+            },
+            {
+              "port": 15,
+              "middle_id": "L671",
+              "front_id": "A379"
+            },
+            {
+              "port": 16,
+              "middle_id": "L672",
+              "front_id": "A401"
+            }
+          ]
+        },
+        {
+          "pcb": 51,
+          "local_can_id": 1,
+          "ports": [
+            {
+              "port": 1,
+              "middle_id": "L725",
+              "front_id": "A306"
+            },
+            {
+              "port": 2,
+              "middle_id": "L726",
+              "front_id": "A331"
+            },
+            {
+              "port": 3,
+              "middle_id": "L711",
+              "front_id": "A332"
+            },
+            {
+              "port": 4,
+              "middle_id": "L712",
+              "front_id": "A354"
+            },
+            {
+              "port": 5,
+              "middle_id": "L727",
+              "front_id": "A353"
+            },
+            {
+              "port": 6,
+              "middle_id": "L695",
+              "front_id": "A400"
+            },
+            {
+              "port": 7,
+              "middle_id": "L728",
+              "front_id": "A376"
+            },
+            {
+              "port": 8,
+              "middle_id": "L729",
+              "front_id": "A423"
+            },
+            {
+              "port": 9,
+              "middle_id": "L736",
+              "front_id": "A282"
+            },
+            {
+              "port": 10,
+              "middle_id": "L737",
+              "front_id": "A330"
+            },
+            {
+              "port": 11,
+              "middle_id": "L710",
+              "front_id": "A307"
+            },
+            {
+              "port": 12,
+              "middle_id": "L738",
+              "front_id": "A375"
+            },
+            {
+              "port": 13,
+              "middle_id": "L713",
+              "front_id": "A377"
+            },
+            {
+              "port": 14,
+              "middle_id": "L714",
+              "front_id": "A399"
+            },
+            {
+              "port": 15,
+              "middle_id": "L739",
+              "front_id": "A398"
+            },
+            {
+              "port": 16,
+              "middle_id": "L740",
+              "front_id": "A422"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "main_node": 25,
+      "pcbs": [
+        {
+          "pcb": 47,
+          "local_can_id": 0,
+          "ports": [
+            {
+              "port": 1,
+              "middle_id": "L621",
+              "front_id": "A427"
+            },
+            {
+              "port": 2,
+              "middle_id": "L648",
+              "front_id": "A426"
+            },
+            {
+              "port": 3,
+              "middle_id": "L622",
+              "front_id": "A452"
+            },
+            {
+              "port": 4,
+              "middle_id": "L649",
+              "front_id": "A451"
+            },
+            {
+              "port": 5,
+              "middle_id": "L623",
+              "front_id": "A480"
+            },
+            {
+              "port": 6,
+              "middle_id": "L624",
+              "front_id": "A533"
+            },
+            {
+              "port": 7,
+              "middle_id": "L650",
+              "front_id": "A505"
+            },
+            {
+              "port": 8,
+              "middle_id": "L676",
+              "front_id": "A506"
+            },
+            {
+              "port": 9,
+              "middle_id": "L696",
+              "front_id": "A424"
+            },
+            {
+              "port": 10,
+              "middle_id": "L673",
+              "front_id": "A425"
+            },
+            {
+              "port": 11,
+              "middle_id": "L697",
+              "front_id": "A476"
+            },
+            {
+              "port": 12,
+              "middle_id": "L674",
+              "front_id": "A450"
+            },
+            {
+              "port": 13,
+              "middle_id": "L698",
+              "front_id": "A503"
+            },
+            {
+              "port": 14,
+              "middle_id": "L675",
+              "front_id": "A504"
+            },
+            {
+              "port": 15,
+              "middle_id": "L718",
+              "front_id": "A479"
+            },
+            {
+              "port": 16,
+              "middle_id": "L699",
+              "front_id": "A530"
+            }
+          ]
+        },
+        {
+          "pcb": 52,
+          "local_can_id": 1,
+          "ports": [
+            {
+              "port": 1,
+              "middle_id": "L715",
+              "front_id": "A448"
+            },
+            {
+              "port": 2,
+              "middle_id": "L730",
+              "front_id": "A447"
+            },
+            {
+              "port": 3,
+              "middle_id": "L716",
+              "front_id": "A475"
+            },
+            {
+              "port": 4,
+              "middle_id": "L731",
+              "front_id": "A449"
+            },
+            {
+              "port": 5,
+              "middle_id": "L717",
+              "front_id": "A478"
+            },
+            {
+              "port": 6,
+              "middle_id": "L741",
+              "front_id": "A446"
+            },
+            {
+              "port": 7,
+              "middle_id": "L732",
+              "front_id": "A477"
+            },
+            {
+              "port": 8,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 9,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 10,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 11,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 12,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 13,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 14,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 15,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 16,
+              "middle_id": null,
+              "front_id": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "main_node": 26,
+      "pcbs": [
+        {
+          "pcb": 48,
+          "local_can_id": 0,
+          "ports": [
+            {
+              "port": 1,
+              "middle_id": "L651",
+              "front_id": "A507"
+            },
+            {
+              "port": 2,
+              "middle_id": "L652",
+              "front_id": "A558"
+            },
+            {
+              "port": 3,
+              "middle_id": "L626",
+              "front_id": "A560"
+            },
+            {
+              "port": 4,
+              "middle_id": "L679",
+              "front_id": "A605"
+            },
+            {
+              "port": 5,
+              "middle_id": "L653",
+              "front_id": "A559"
+            },
+            {
+              "port": 6,
+              "middle_id": "L654",
+              "front_id": "A606"
+            },
+            {
+              "port": 7,
+              "middle_id": "L680",
+              "front_id": "A628"
+            },
+            {
+              "port": 8,
+              "middle_id": "L628",
+              "front_id": "A585"
+            },
+            {
+              "port": 9,
+              "middle_id": "L677",
+              "front_id": "A508"
+            },
+            {
+              "port": 10,
+              "middle_id": "L700",
+              "front_id": "A556"
+            },
+            {
+              "port": 11,
+              "middle_id": "L719",
+              "front_id": "A531"
+            },
+            {
+              "port": 12,
+              "middle_id": "L678",
+              "front_id": "A581"
+            },
+            {
+              "port": 13,
+              "middle_id": "L701",
+              "front_id": "A557"
+            },
+            {
+              "port": 14,
+              "middle_id": "L720",
+              "front_id": "A532"
+            },
+            {
+              "port": 15,
+              "middle_id": "L702",
+              "front_id": "A582"
+            },
+            {
+              "port": 16,
+              "middle_id": "L703",
+              "front_id": "A583"
+            }
+          ]
+        },
+        {
+          "pcb": 49,
+          "local_can_id": 1,
+          "ports": [
+            {
+              "port": 1,
+              "middle_id": "L655",
+              "front_id": "A607"
+            },
+            {
+              "port": 2,
+              "middle_id": "L656",
+              "front_id": "A630"
+            },
+            {
+              "port": 3,
+              "middle_id": "L657",
+              "front_id": "A587"
+            },
+            {
+              "port": 4,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 5,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 6,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 7,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 8,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 9,
+              "middle_id": "L681",
+              "front_id": "A629"
+            },
+            {
+              "port": 10,
+              "middle_id": "L682",
+              "front_id": "A650"
+            },
+            {
+              "port": 11,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 12,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 13,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 14,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 15,
+              "middle_id": null,
+              "front_id": null
+            },
+            {
+              "port": 16,
+              "middle_id": null,
+              "front_id": null
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "port_numbering": "ports.port 为 USB/LED 的 1~16 编号；middle_id/front_id 为 null 表示保留接口。",
+  "mapping_source": "canvas.html: 焦面 front_id → 理线 middle_id → PCB/port；后端 JSON 的历史 A 键仅为顺序索引，以 middleId/frontId 字段为准。"
+}

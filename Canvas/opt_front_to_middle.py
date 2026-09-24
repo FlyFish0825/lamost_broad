@@ -1,130 +1,109 @@
-import re, json, math
+"""Export the optimized mappings embedded in canvas.html and synchronize LED tables.
+
+Run: python opt_front_to_middle.py
+Uses the HTML's saved default mappings, not unsaved browser edits.
+No third-party packages are required. Geometry and wiring are not re-optimized.
+Legacy back-map A keys are sequence keys; middleId is the authoritative endpoint.
+"""
+import json
+import re
 from pathlib import Path
-import numpy as np
-from scipy.optimize import linear_sum_assignment
 
-ROOT = Path(r'F:\file\BaiduSyncdisk\Project\lamost_broad\Canvas')
-HTML = ROOT / 'canvas.html'
-s = HTML.read_text(encoding='utf-8')
-fronts = json.loads(re.search(r'FRONT_COORDS\s*=\s*(\[.*?\]);', s, re.S).group(1))
-rows = [9,13,17,21,25,25,29,29,31,31,33,30,26,26,26]
-ys = [310,290,270,250,230,210,190,170,150,130,110,90,70,50,30]
-pts = []
+ROOT = Path(__file__).resolve().parent
 
-def half_width(y):
-    q = abs(y)
-    if q <= 145:
-        return 335.0
-    t = (325.0 - q) / 180.0
-    return 165.0 + max(0.0, min(1.0, t)) * 170.0
+def require(ok, message):
+    if not ok:
+        raise ValueError(message)
 
-def add_row(y, count):
-    xmax = half_width(y) - 14.0
-    if abs(y) <= 50:
-        n = count // 2
-        gap = math.sqrt(max(0.0, 60.0**2-y*y)) + 14.0
-        xs = [-xmax+i*(xmax-gap)/(n-1) for i in range(n)] + [gap+i*(xmax-gap)/(n-1) for i in range(n)]
-    else:
-        xs = [-xmax+i*(2*xmax)/(count-1) for i in range(count)]
-    for x in xs:
-        pts.append({'x':x,'y':float(y)})
-for y,n in zip(ys,rows): add_row(y,n)
-for y,n in zip(reversed(ys),reversed(rows)): add_row(-y,n)
-for i,q in enumerate(pts,1): q['id']=f'L{i:03d}'
+def read_text(path):
+    return path.read_bytes().decode('utf-8-sig')
 
-top8=sorted([q for q in pts if q['y']>0],key=lambda q:math.hypot(q['x'],q['y']),reverse=True)[:8]
-spare={q['id'] for q in top8}
-for q in top8:
-    mirror=min(pts,key=lambda p:abs(p['x']-q['x'])+abs(p['y']+q['y']))
-    spare.add(mirror['id'])
-active=[q for q in pts if q['id'] not in spare]
-assert len(active)==726 and len(fronts)==726
+def constant(html, name):
+    match = re.search(r'const\s+' + name + r'\s*=\s*(\{[^\r\n]*\});', html)
+    require(match is not None, 'Missing constant: ' + name)
+    return json.loads(match.group(1))
 
-F=np.array([[q[1],q[2]] for q in fronts],dtype=float)
-T=np.array([[q['x'],q['y']] for q in active],dtype=float)
-dx=F[:,None,0]-T[None,:,0]
-dy=F[:,None,1]-T[None,:,1]
-cost=dx*dx+dy*dy
-upper_bad=(F[:,None,1]>8.0)&(T[None,:,1]<0.0)
-lower_bad=(F[:,None,1]<-8.0)&(T[None,:,1]>0.0)
-cost+=(upper_bad|lower_bad)*1.0e7
-side_bad=(np.abs(F[:,None,0])>30.0)&(np.abs(T[None,:,0])>30.0)&(np.sign(F[:,None,0])!=np.sign(T[None,:,0]))
-cost+=side_bad*2.0e5
-ri,ci=linear_sum_assignment(cost)
-assign=np.empty(len(fronts),dtype=int)
-assign[ri]=ci
-def cross_with(i,ti,j,tj):
-    a=F[i]; b=T[ti]; c=F[j]; d=T[tj]
-    rx,ry=b[0]-a[0],b[1]-a[1]
-    sx,sy=d[0]-c[0],d[1]-c[1]
-    den=rx*sy-ry*sx
-    if abs(den)<1e-9: return False
-    qx,qy=c[0]-a[0],c[1]-a[1]
-    t=(qx*sy-qy*sx)/den
-    u=(qx*ry-qy*rx)/den
-    return 1e-6<t<1-1e-6 and 1e-6<u<1-1e-6
+def main():
+    html_path = ROOT / 'canvas.html'
+    group_path = ROOT / 'main_node_pcb_groups.json'
+    led_path = ROOT.parent / 'lamost_broad_MCU/Core/pcb_broad/just_led.c'
+    html = read_text(html_path)
+    front = constant(html, 'OPTIMIZED_FRONT_MAPPING')
+    old_back = constant(html, 'OPTIMIZED_BACK_MAPPING')
+    require(set(front) == {f'A{i}' for i in range(1, 727)}, 'Expected A1 through A726')
+    require(all(isinstance(v, str) and re.fullmatch(r'L\d{3}', v) for v in front.values()), 'Invalid middle ID')
+    require(len(set(front.values())) == 726, 'Duplicate middle endpoints')
+    active = sorted(front.values(), key=lambda v: int(v[1:]))
+    require(all(1 <= int(v[1:]) <= 742 for v in active), 'Middle ID out of range')
+    inverse = {middle: fid for fid, middle in front.items()}
+    require(set(old_back) == {f'A{i}' for i in range(1, 727)}, 'Expected 726 legacy sequence keys')
+    back = {}
+    middle_back = {}
+    tables = [[0] * 16 for _ in range(52)]
+    port_details = {}
+    for i in range(1, 727):
+        key = f'A{i}'
+        record = old_back[key]
+        mid = record.get('middleId', active[i-1])
+        require(mid in inverse and mid not in middle_back, 'Missing/duplicate middle endpoint')
+        pcb, port = record['pcb'], record['port']
+        require(type(pcb) is int and type(port) is int and 0 <= pcb < 52 and 0 <= port < 16, 'Invalid PCB/port')
+        require((pcb, port) not in port_details, 'Duplicate PCB port')
+        fid = inverse[mid]
+        back[key] = {'pcb': pcb, 'port': port, 'backId': f'{pcb}:{port}', 'middleId': mid, 'frontId': fid}
+        middle_back[mid] = back[key]
+        tables[pcb][port] = int(fid[1:])
+        port_details[pcb, port] = {'middle_id': mid, 'front_id': fid}
+    values = [n for row in tables for n in row if n]
+    require(sorted(values) == list(range(1, 727)), 'LED IDs are not a complete bijection')
+    require(sum(n == 0 for row in tables for n in row) == 106, 'Expected 106 reserved ports')
 
-def cross_pairs():
-    out=[]
-    n=len(assign)
-    for i in range(n):
-        ai=assign[i]
-        for j in range(i+1,n):
-            if cross_with(i,ai,j,assign[j]): out.append((i,j))
-    return out
+    groups = json.loads(read_text(group_path))
+    require(len(groups['groups']) == 26, 'Expected 26 main nodes')
+    require(sorted(g['main_node'] for g in groups['groups']) == list(range(1, 27)), 'Invalid main-node IDs')
+    seen = []
+    for group in groups['groups']:
+        require(len(group['pcbs']) == 2 and sorted(p['local_can_id'] for p in group['pcbs']) == [0, 1], 'Invalid local CAN group')
+        for entry in group['pcbs']:
+            pcb = entry['pcb']
+            require(1 <= pcb <= 52, 'Invalid global PCB number')
+            seen.append(pcb)
+            entry['ports'] = [{'port': j+1, **port_details.get((pcb-1, j), {'middle_id': None, 'front_id': None})} for j in range(16)]
+    require(sorted(seen) == list(range(1, 53)), 'PCB groups must cover all 52 boards exactly once')
+    groups['port_numbering'] = 'ports.port 为 USB/LED 的 1~16 编号；middle_id/front_id 为 null 表示保留接口。'
+    groups['mapping_source'] = 'canvas.html: 焦面 front_id → 理线 middle_id → PCB/port；后端 JSON 的历史 A 键仅为顺序索引，以 middleId/frontId 字段为准。'
 
-def valid_target(i,tidx):
-    fy,ty=F[i,1],T[tidx,1]
-    if fy>8 and ty<0: return False
-    if fy<-8 and ty>0: return False
-    fx,tx=F[i,0],T[tidx,0]
-    if abs(fx)>30 and abs(tx)>30 and np.sign(fx)!=np.sign(tx): return False
-    return True
+    led = read_text(led_path)
+    pattern = r'(#(?:if|elif) PCB_ID == (\d+)\s+const uint16_t pcb_map\[JUST_BOARD_LED_NUMBER\] = \{)(.*?)(\n\};)'
+    newline = '\r\n' if '\r\n' in led else '\n'
+    found = []
+    def replace_table(match):
+        pcb = int(match.group(2))
+        require(1 <= pcb <= 52, 'Unexpected PCB conditional')
+        found.append(pcb)
+        row = tables[pcb-1]
+        body = newline + '    ' + ', '.join(f'{n}U' for n in row[:8]) + ',' + newline + '    ' + ', '.join(f'{n}U' for n in row[8:])
+        return match.group(1) + body + newline + '};'
+    led_new = re.sub(pattern, replace_table, led, flags=re.S)
+    require(sorted(found) == list(range(1, 53)), 'Expected 52 LED map blocks')
+    html_new, n = re.subn(r'const OPTIMIZED_BACK_MAPPING=\{[^\r\n]*\};', 'const OPTIMIZED_BACK_MAPPING=' + json.dumps(back, ensure_ascii=False, separators=(',', ':')) + ';', html)
+    require(n == 1, 'Back-map replacement failed')
+    old = 'const rid=activeRouteIds[f.seq-1];'
+    new = 'const rid=b.middleId||activeRouteIds[f.seq-1];'
+    if old in html_new:
+        html_new = html_new.replace(old, new, 1)
+    require(new in html_new, 'Unsupported back mapping loader')
+    outputs = {
+        html_path: html_new,
+        ROOT / 'optimized_front_to_middle.json': json.dumps(front, ensure_ascii=False, indent=2) + '\n',
+        ROOT / 'optimized_middle_to_back.json': json.dumps(back, ensure_ascii=False, indent=2) + '\n',
+        group_path: json.dumps(groups, ensure_ascii=False, indent=2) + '\n',
+        led_path: led_new,
+    }
+    # All validation above completes before any file is written.
+    for path, text in outputs.items():
+        path.write_bytes(text.encode('utf-8'))
+    print('Exported 726 complete A -> L -> PCB/port mappings; 52 LED tables, 106 reserved ports, 26 CAN groups.')
 
-def local_delta(i,j):
-    ti,tj=assign[i],assign[j]
-    old=new=0
-    for k in range(len(assign)):
-        if k==i or k==j: continue
-        tk=assign[k]
-        old+=cross_with(i,ti,k,tk)+cross_with(j,tj,k,tk)
-        new+=cross_with(i,tj,k,tk)+cross_with(j,ti,k,tk)
-    old+=cross_with(i,ti,j,tj)
-    new+=cross_with(i,tj,j,ti)
-    old_len=np.linalg.norm(F[i]-T[ti])+np.linalg.norm(F[j]-T[tj])
-    new_len=np.linalg.norm(F[i]-T[tj])+np.linalg.norm(F[j]-T[ti])
-    return new-old,float(new_len-old_len)
-
-initial_cross=len(cross_pairs())
-for _ in range(400):
-    pairs=cross_pairs()
-    best=None
-    best_score=0.0
-    for i,j in pairs:
-        ti,tj=assign[i],assign[j]
-        if not valid_target(i,tj) or not valid_target(j,ti): continue
-        dc,dl=local_delta(i,j)
-        score=dc*60.0+dl
-        if dc<0 and score<best_score:
-            best_score=score; best=(i,j)
-    if best is None: break
-    i,j=best
-    assign[i],assign[j]=assign[j],assign[i]
-
-final_cross=len(cross_pairs())
-mapping={fronts[i][0]:active[int(assign[i])]['id'] for i in range(len(fronts))}
-assert len(mapping)==726 and len(set(mapping.values()))==726
-assert not (set(mapping.values())&spare)
-xy_len=[math.hypot(fronts[i][1]-active[int(assign[i])]['x'],fronts[i][2]-active[int(assign[i])]['y']) for i in range(len(fronts))]
-sign_bad=sum(1 for i in range(len(fronts)) if not valid_target(i,int(assign[i])))
-
-simple=json.dumps(mapping,ensure_ascii=False,separators=(',',':'))
-pat=r'const OPTIMIZED_FRONT_MAPPING=.*?;\s*\nfunction applyOptimizedBackMapping'
-rep='const OPTIMIZED_FRONT_MAPPING='+simple+';\nfunction applyOptimizedBackMapping'
-new_s,nrep=re.subn(pat,rep,s,count=1,flags=re.S)
-if nrep!=1: raise RuntimeError(f'front mapping block replace failed: {nrep}')
-HTML.write_text(new_s,encoding='utf-8')
-(ROOT/'optimized_front_to_middle.json').write_text(json.dumps(mapping,indent=2,ensure_ascii=False),encoding='utf-8')
-print('front mapping:',len(mapping),'cross:',initial_cross,'->',final_cross)
-print('unique active:',len(set(mapping.values())),'spare used:',len(set(mapping.values())&spare),'constraint bad:',sign_bad)
-print('planar length avg/max mm:',round(float(np.mean(xy_len)),3),round(float(np.max(xy_len)),3))
+if __name__ == '__main__':
+    main()

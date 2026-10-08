@@ -1,7 +1,7 @@
 {
-  "description": "主节点与52块PCB的物理分组记录；每个主节点下挂2块PCB，组内CAN地址重新从0开始。",
+  "description": "26个主节点与52块外接PCB的物理分组记录；每个主节点下挂两块PCB，每块16端口。外接板MCU仅静默监听CAN亮灯指令并控制本地LED。",
   "pcb_numbering": "沿用Canvas中PCB的全局编号：自上而下、每行自左向右，范围1~52。",
-  "local_can_id_rule": "每个主节点的下行CAN是独立局部总线；组内第一块PCB为local_can_id=0，第二块为local_can_id=1。水平组按左到右，竖直组按上到下。",
+  "local_can_id_rule": "历史字段local_can_id保留0/1作为组内两块PCB的排序索引，不表示PCB的CAN地址。每个主节点下挂单元的CAN ID均为1～32，组间重复。端口与组内单元ID的对应需按实际配置确认，不由PCB全局编号推断。",
   "groups": [
     {
       "main_node": 1,

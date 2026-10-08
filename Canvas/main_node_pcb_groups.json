@@ -4607,5 +4607,5 @@
     }
   ],
   "port_numbering": "ports.port 为 USB/LED 的 1~16 编号；middle_id/front_id 为 null 表示保留接口。",
-  "mapping_source": "canvas.html: 焦面 front_id → 理线 middle_id → PCB/port；后端 JSON 的历史 A 键仅为顺序索引，以 middleId/frontId 字段为准。"
+  "mapping_source": "canvas_assembly.html: 焦面 front_id → 理线 middle_id → PCB/port；后端 JSON 的历史 A 键仅为顺序索引，以 middleId/frontId 字段为准。"
 }

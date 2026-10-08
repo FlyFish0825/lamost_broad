@@ -1,4 +1,4 @@
-"""Export the optimized mappings embedded in canvas.html and synchronize LED tables.
+"""Export mappings from canvas_assembly.html and synchronize LED tables.
 
 Run: python opt_front_to_middle.py
 Uses the HTML's saved default mappings, not unsaved browser edits.
@@ -24,7 +24,7 @@ def constant(html, name):
     return json.loads(match.group(1))
 
 def main():
-    html_path = ROOT / 'canvas.html'
+    html_path = ROOT / 'canvas_assembly.html'
     group_path = ROOT / 'main_node_pcb_groups.json'
     led_path = ROOT.parent / 'lamost_broad_MCU/Core/pcb_broad/just_led.c'
     html = read_text(html_path)
@@ -63,7 +63,8 @@ def main():
     require(sorted(g['main_node'] for g in groups['groups']) == list(range(1, 27)), 'Invalid main-node IDs')
     seen = []
     for group in groups['groups']:
-        require(len(group['pcbs']) == 2 and sorted(p['local_can_id'] for p in group['pcbs']) == [0, 1], 'Invalid local CAN group')
+        # Legacy local_can_id values identify board order, not CAN addresses.
+        require(len(group['pcbs']) == 2 and sorted(p['local_can_id'] for p in group['pcbs']) == [0, 1], 'Invalid board order within group')
         for entry in group['pcbs']:
             pcb = entry['pcb']
             require(1 <= pcb <= 52, 'Invalid global PCB number')
@@ -71,7 +72,7 @@ def main():
             entry['ports'] = [{'port': j+1, **port_details.get((pcb-1, j), {'middle_id': None, 'front_id': None})} for j in range(16)]
     require(sorted(seen) == list(range(1, 53)), 'PCB groups must cover all 52 boards exactly once')
     groups['port_numbering'] = 'ports.port 为 USB/LED 的 1~16 编号；middle_id/front_id 为 null 表示保留接口。'
-    groups['mapping_source'] = 'canvas.html: 焦面 front_id → 理线 middle_id → PCB/port；后端 JSON 的历史 A 键仅为顺序索引，以 middleId/frontId 字段为准。'
+    groups['mapping_source'] = 'canvas_assembly.html: 焦面 front_id → 理线 middle_id → PCB/port；后端 JSON 的历史 A 键仅为顺序索引，以 middleId/frontId 字段为准。'
 
     led = read_text(led_path)
     pattern = r'(#(?:if|elif) PCB_ID == (\d+)\s+const uint16_t pcb_map\[JUST_BOARD_LED_NUMBER\] = \{)(.*?)(\n\};)'
@@ -88,6 +89,18 @@ def main():
     require(sorted(found) == list(range(1, 53)), 'Expected 52 LED map blocks')
     html_new, n = re.subn(r'const OPTIMIZED_BACK_MAPPING=\{[^\r\n]*\};', 'const OPTIMIZED_BACK_MAPPING=' + json.dumps(back, ensure_ascii=False, separators=(',', ':')) + ';', html)
     require(n == 1, 'Back-map replacement failed')
+    group_overview = [
+        {'main_node': group['main_node'],
+         'pcbs': [{'pcb': entry['pcb'], 'local_can_id': entry['local_can_id']}
+                  for entry in group['pcbs']]}
+        for group in groups['groups']
+    ]
+    html_new, n = re.subn(
+        r'const MAIN_GROUPS\s*=\s*\[[^\r\n]*\];',
+        'const MAIN_GROUPS = ' + json.dumps(group_overview, separators=(',', ':')) + ';',
+        html_new,
+    )
+    require(n == 1, 'Main-group replacement failed')
     old = 'const rid=activeRouteIds[f.seq-1];'
     new = 'const rid=b.middleId||activeRouteIds[f.seq-1];'
     if old in html_new:

@@ -3,6 +3,7 @@
 <style>
 :root{--ink:#192d38;--muted:#72828c;--line:#d9e2e6;--green:#187d78;--orange:#ee9466}*{box-sizing:border-box}html,body{margin:0;height:100%;overflow:hidden;font-family:"Segoe UI","Microsoft YaHei",sans-serif;color:var(--ink);background:#edf2f4}button,input,select{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #d68e43;outline-offset:3px}button{border:1px solid var(--line);background:white;color:var(--ink);border-radius:7px;padding:8px 12px;font-size:12px;transition:background .15s}button:hover{background:#e3efed}button.active{background:#1d6964;color:white;border-color:#1d6964}.mast{height:74px;display:flex;align-items:center;justify-content:space-between;padding:0 26px;border-bottom:1px solid var(--line);background:#fff}.brand{display:flex;align-items:center;gap:14px}.logo{height:34px;width:34px;border:1px solid #2a7770;border-radius:50%;position:relative;background:radial-gradient(circle,#298d812b 0 35%,transparent 36%)}.logo:after,.logo:before{content:"";position:absolute;inset:6px -4px;border:1px solid #2a7770;border-radius:50%;transform:rotate(55deg)}.logo:after{transform:rotate(-55deg)}.brand b{display:block;font-size:18px;letter-spacing:4px}.brand small{display:block;color:var(--muted);font-size:10px;letter-spacing:1.6px;margin-top:3px}.mast-actions{display:flex;gap:8px;align-items:center}.edition{color:#5b717a;font-size:11px;border-right:1px solid var(--line);padding-right:18px;margin-right:8px}.layout{height:calc(100% - 110px);display:grid;grid-template-columns:292px 1fr}.side{padding:23px 20px 18px;background:#f9fbfb;border-right:1px solid var(--line);overflow:auto}.eyebrow{font-size:10px;font-weight:700;letter-spacing:2px;color:#648480}.side h1{font-size:23px;line-height:1.45;font-weight:600;margin:9px 0 9px;letter-spacing:1px}.intro{color:#76858c;font-size:11px;line-height:1.9;margin:0 0 21px}.section{border-top:1px solid var(--line);padding:18px 0 2px;margin-top:16px}.section h3,.pair-label{font-size:11px;font-weight:600;letter-spacing:1px;margin:0 0 12px;color:#617780}.segmented{display:flex;gap:4px;background:#e9eeef;padding:4px;border-radius:9px}.segmented button{flex:1;border:0;background:transparent;padding:9px 5px}.segmented button.active{background:#fff;color:#1e655e;box-shadow:0 2px 5px #16372f13}.row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:11px 0;font-size:12px}.row label{cursor:pointer;display:flex;align-items:center;gap:8px}input[type=checkbox]{accent-color:#26776f;width:14px;height:14px;margin:0}input[type=range]{width:100%;accent-color:#327f77;cursor:pointer}.value{font-family:Consolas,monospace;font-size:15px;color:#235e59}.unit{font-size:10px;color:#839096}.select{width:100%;padding:8px;border-radius:6px;background:#fff;border:1px solid var(--line);font-size:11px;color:#4b656c}.hint{font-size:10px;line-height:1.8;color:#839198}.count-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}.metric{border-left:2px solid #c9dbd7;padding-left:10px}.metric strong{display:block;font:24px Consolas,monospace;color:#285b58}.metric span{font-size:10px;color:#80908f}.searchbox{display:flex;gap:5px;margin-top:9px}.searchbox input{min-width:0;flex:1;padding:9px 8px;border:1px solid var(--line);border-radius:6px;font-size:11px;background:white}.trace{min-height:52px;margin-top:10px;padding:9px 10px;background:#eaf1ef;border-radius:6px;font-size:11px;line-height:1.8;color:#46635e;overflow-wrap:anywhere}.full{width:100%;margin-top:8px}.mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin:8px 0}.mini-grid button{font-size:11px;padding:7px}.editor{margin-top:14px}.editor summary{font-size:11px;cursor:pointer;padding:10px 0;color:#55756f}.kv{display:flex;justify-content:space-between;font-size:11px;margin:8px 0;color:#657a80}.kv b{font-weight:500;font-family:Consolas,monospace}.ok{color:#327d6d}.alarm{color:#c96c51}.stage{position:relative;min-width:0;min-height:0;overflow:hidden;background:radial-gradient(ellipse at 46% 38%,#fafcfb 0,#eaf0f1 75%)}.stage canvas{display:block;width:100%;height:100%;cursor:grab}.stage canvas.drag{cursor:grabbing}.stage-top{position:absolute;top:24px;left:28px;right:26px;display:flex;justify-content:space-between;gap:16px;align-items:flex-start;pointer-events:none}.view-heading .eyebrow{font-size:9px;color:#8d9da1;letter-spacing:2px}.view-heading h2{font-size:20px;font-weight:500;letter-spacing:1px;margin:7px 0}.view-heading p{margin:0;font-size:11px;color:#829097}.views{display:flex;padding:4px;border:1px solid #d9e3e3;background:#ffffffd9;border-radius:9px;gap:3px;pointer-events:auto}.views button{border:0;background:transparent;padding:8px 12px}.views button.active{background:#266f68;color:#fff}.camera-tools{position:absolute;top:104px;right:28px;display:flex;gap:5px}.camera-tools button{background:#ffffffe0;font-size:11px;padding:7px 10px}.legend{position:absolute;bottom:23px;left:28px;display:flex;gap:18px;font-size:10px;color:#62787e;align-items:center;pointer-events:none}.legend span{display:flex;align-items:center;gap:6px}.dot{width:6px;height:6px;border-radius:50%;display:inline-block}.orange{border:1.5px solid #e38253;background:transparent!important}.guide{position:absolute;right:28px;bottom:22px;max-width:275px;color:#829498;font-size:10px;line-height:1.8;text-align:right;pointer-events:none}.badge{display:none}.tip{position:fixed;display:none;z-index:30;background:#fffef7f5;border:1px solid #c5d4cc;color:#28433b;border-radius:7px;padding:10px 13px;font-size:11px;line-height:1.7;pointer-events:none;box-shadow:0 5px 25px #193c2922}.foot{height:36px;display:flex;align-items:center;justify-content:space-between;background:#fff;border-top:1px solid var(--line);padding:0 24px;gap:20px;font-size:10px;color:#7c8c92}.status{overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.foot-right{white-space:nowrap;letter-spacing:.4px}dialog{border:1px solid #d0dedb;border-radius:14px;width:580px;max-width:92vw;padding:28px;color:#29423e;box-shadow:0 24px 100px #152f3e44}dialog::backdrop{background:#20353d66}dialog h2{font-size:20px;margin-top:0}dialog p,dialog li{font-size:12px;line-height:1.9}dialog table{width:100%;font-size:11px;border-collapse:collapse}dialog td{border-bottom:1px solid #dee6e3;padding:9px 5px}dialog button{float:right;margin-top:14px}.stage.group-view .camera-tools,.stage.group-view .legend{display:none}.stage.mapping{background:#0b1017}.stage.mapping .view-heading h2{color:#d0e6e0}.stage.mapping .legend{color:#a7b9bb}.stage.mapping .views{background:#eff5f5}.danger{color:#aa6251}.range-ends{display:flex;justify-content:space-between;font:9px Consolas,monospace;color:#91a0a2}.sr-only{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
 @media(max-width:1100px){.layout{grid-template-columns:248px 1fr}.side{padding:18px 15px}.stage-top{left:20px;right:18px}.views button{padding:8px}.view-heading h2{font-size:17px}.edition{display:none}.legend{gap:9px}.guide{max-width:205px}}@media(max-height:800px){.side h1{font-size:20px}.side{padding-top:17px}.intro{margin-bottom:12px}.section{padding-top:12px;margin-top:12px}.count-grid{margin:10px 0}.row{margin:8px 0}}
+.stage #solidView{position:absolute;inset:0;z-index:0;pointer-events:none}.stage #solidView[hidden]{display:none}.stage #view{position:relative;z-index:1}.stage-top,.camera-tools,.legend,.guide{z-index:2}
 </style></head><body>
 <header class="mast"><div class="brand"><span class="logo"></span><div><b>LAMOST</b><small>FOCAL PLANE / ASSEMBLY STUDY</small></div></div><div class="mast-actions"><span class="edition">光机装配 · 参考图比例版</span><button id="helpBtn">尺寸与数据</button><button id="loadBtn">导入映射</button><button id="saveBtn">保存映射</button><button id="captureBtn">导出视图</button></div></header>
 <div class="layout"><aside class="side">
@@ -14,7 +15,7 @@
 <div class="section"><h3>03 / CAN 两级分组</h3><select id="groupSelect" class="select" aria-label="主节点分组"><option value="all">全部 26 个主节点</option></select><div id="groupInfo" class="trace">上级 CAN → 26 个主节点<br>每组单元 ID 1–32，经两块 PCB 接入</div><button id="groupViewBtn" class="full">查看已划分的主节点布局</button></div><div class="section"><h3>04 / 追踪连接</h3><div class="searchbox"><input id="search" placeholder="A387 / Inner_01 / 23-2" aria-label="查找单元或接口"><button id="findBtn">定位</button></div><div id="traceInfo" class="trace">输入编号，查看完整接线链路。</div><details class="editor"><summary>映射编辑与交叉检查</summary><div class="mini-grid"><button id="nextBtn">下一个</button><button id="undoBtn">撤销</button><button id="autoBtn">恢复当前层</button><button id="clearBtn" class="danger">清空当前层</button></div><label class="row"><span>连续连接</span><input id="continuous" type="checkbox" checked></label><label class="row"><span>仅显示交叉线路</span><input id="onlyCross" type="checkbox"></label><div class="row"><span>线宽</span><span><span id="lwValue">1.2</span> px</span></div><input id="lwRange" type="range" min="0.5" max="4" value="1.2" step="0.1" aria-label="连线宽度"><div id="pairTitle" class="pair-label">焦面 → 理线</div><div class="kv"><span>源 / 目标节点</span><b><span id="srcCount">726</span> / <span id="dstCount">726</span></b></div><div class="kv"><span>映射数</span><b id="wireCount">726</b></div><div class="kv"><span>投影交叉 / 近交叉</span><b><span id="crossCount">0</span> / <span id="cross3dCount">0</span></b></div><div class="kv"><span>参与交叉线路</span><b id="crossWireCount">0</b></div><p class="hint">交叉统计沿用原坐标与直线判定，仅统计电源 / CAN，不包含光纤曲线或装配碰撞。</p><div id="selInfo" class="hint"></div></details></div>
 </aside><main class="stage" id="stage"><canvas id="view" aria-label="LAMOST 装配与布线交互画布"></canvas><div class="stage-top"><div class="view-heading"><div class="eyebrow">ENGINEERING VIEW / MILLIMETRES</div><h2 id="sceneTitle">三层装配 · 空间总览</h2><p id="sceneSubtitle">焦面 Ø570 / 铝基板 Ø1300 / 层间距 420</p></div><nav class="views"><button id="overallBtn" class="active">装配总览</button><button id="view3dBtn">两板 3D</button><button id="view2dBtn">2D 布线</button><button id="groupsBtn">CAN 分组</button></nav></div><div class="camera-tools"><button id="isoBtn">等轴测</button><button id="frontBtn">正视</button><button id="sideBtn">侧视</button><button id="resetView">复位</button></div><div id="badge" class="badge"></div><div class="legend"><span><i class="dot" style="background:#58b395"></i>焦面单元</span><span><i class="dot orange"></i>Inner / Outer</span><span><i class="dot" style="background:#baab70"></i>光纤</span><span><i class="dot" style="background:#759aaa"></i>电源 / CAN</span></div><div id="guide" class="guide">左键拖动旋转 · 右键拖动平移<br>滚轮缩放 · 点击节点查看映射</div></main></div>
 <footer class="foot"><span id="status" class="status">装配比例参考示意图；接线与节点排列沿用现版。</span><span class="foot-right">726 路映射 · 106 保留接口 · 26 主节点组</span></footer><div id="tip" class="tip"></div><input id="fileInput" type="file" accept=".json" hidden>
-<dialog id="helpDialog"><h2>尺寸、比例与数据依据</h2><p>新版沿用现版的 A → L → PCB 接线、节点排列和编号。装配视图只对各板的显示坐标做等比缩放；2D 编辑、映射保存和交叉统计继续使用原始坐标。装配与 CAN 分组图的中间两排 PCB 按参考图留出中央开口，板号与端口顺序不变。</p><table><tr><td>焦面板</td><td>Ø570 mm，中心孔 R40</td><td>参考尺寸图</td></tr><tr><td>理线板</td><td>约 1200 × 1164 mm</td><td>按参考图估算比例</td></tr><tr><td>铝基板</td><td>Ø1300 mm</td><td>项目约 1.3 m 基板说明</td></tr><tr><td>相邻平面间距</td><td>默认 420 mm，可调</td><td>展示设置</td></tr><tr><td>焦面坐标</td><td>球面数据20250717.xlsx</td><td>726 个 XYZ 坐标</td></tr><tr><td>基准点</td><td>Best_Ring_Optimized_Fiducials.xlsx</td><td>88 Inner + 36 Outer</td></tr></table><p>板件厚度、支撑杆、紧固件与理线槽为外观示意，不作为加工尺寸。每单元 3 根光纤用 1 条曲线表示，沿列收束、绕开中央柱体并止于横槽两侧。光纤曲线不改变电源 / CAN 映射。</p><p>Excel 坐标已内置到页面，直接离线打开即可。导入 / 保存兼容现版映射 JSON，不会自动写入固件。</p><p>CAN 为两级结构：上级 CAN 连接 26 个正方形主节点，每个主节点再通过独立的下行 CAN 连接 2 块 PCB。分组按 main_node_pcb_groups.json 与主节点布局图一致标注；每个主节点下的单元 ID 都使用 1～32，组间重复。外接板仅静默监听指定位置的亮灯指令，控制本地 LED，不向 CAN 总线发送、应答或软件转发。图中的组内板位 1 / 2 仅区分两块物理 PCB，不是 CAN 地址；端口到组内单元 ID 的对应另按实际配置确认。</p><button id="helpClose">知道了</button></dialog>
+<dialog id="helpDialog"><h2>尺寸、比例与数据依据</h2><p>新版沿用现版的 A → L → PCB 接线、节点排列和编号。装配视图只对各板的显示坐标做等比缩放；2D 编辑、映射保存和交叉统计继续使用原始坐标。装配与 CAN 分组图的中间两排 PCB 按参考图留出中央开口，板号与端口顺序不变。</p><table><tr><td>焦面板</td><td>Ø570 mm，中心孔 R40</td><td>参考尺寸图</td></tr><tr><td>理线板</td><td>约 1200 × 1164 mm</td><td>按参考图估算比例</td></tr><tr><td>铝基板</td><td>Ø1300 mm</td><td>项目约 1.3 m 基板说明</td></tr><tr><td>相邻平面间距</td><td>默认 420 mm，可调</td><td>展示设置</td></tr><tr><td>焦面坐标</td><td>球面数据20250717.xlsx</td><td>726 个 XYZ 坐标</td></tr><tr><td>基准点</td><td>Best_Ring_Optimized_Fiducials.xlsx</td><td>88 Inner + 36 Outer</td></tr></table><p>板件厚度、支撑杆、紧固件与理线槽为外观示意，不作为加工尺寸。每单元 3 根光纤用 1 条曲线表示，沿列收束、绕开中央柱体并止于横槽两侧。光纤曲线不改变电源 / CAN 映射。实体视图会遮挡板后节点和线路，中心孔保持贯通；需要查看全部连接时可取消“实体板件”。</p><p>Excel 坐标已内置到页面，直接离线打开即可。导入 / 保存兼容现版映射 JSON，不会自动写入固件。</p><p>CAN 为两级结构：上级 CAN 连接 26 个正方形主节点，每个主节点再通过独立的下行 CAN 连接 2 块 PCB。分组按 main_node_pcb_groups.json 与主节点布局图一致标注；每个主节点下的单元 ID 都使用 1～32，组间重复。外接板仅静默监听指定位置的亮灯指令，控制本地 LED，不向 CAN 总线发送、应答或软件转发。图中的组内板位 1 / 2 仅区分两块物理 PCB，不是 CAN 地址；端口到组内单元 ID 的对应另按实际配置确认。</p><button id="helpClose">知道了</button></dialog>
 <script>
 
 'use strict';
@@ -388,7 +389,12 @@ function assemblyLayers(){
   return viewMode==='overall'?{front:-g,middle:0,back:g}:pair==='fm'?{front:-g/2,middle:g/2}:{middle:-g/2,back:g/2};
 }
 function displayScale(layer){return layer==='middle'?ASSEMBLY.middleScale:layer==='back'?ASSEMBLY.backScale:1;}
-function worldNode(o,layer,z){const s=displayScale(layer);return{x:(o.x+(layer==='back'?backDisplayOffset(o.pcb):0))*s,y:o.y*s,z:z+(layer==='front'?(FRONT_Z[o.id]||0):0)};}
+function worldNode(o,layer,z){
+  const s=displayScale(layer);
+  // Solid-view markers are surface annotations, not points inside the plate thickness.
+  const offset=solidControl.checked?(layer==='back'?-4.12:-.12):layer==='front'?(FRONT_Z[o.id]||0):0;
+  return{x:(o.x+(layer==='back'?backDisplayOffset(o.pcb):0))*s,y:o.y*s,z:z+offset};
+}
 function prepareAssemblyFrame(){
   frameProjection={cy:Math.cos(cam.yaw),sy:Math.sin(cam.yaw),cp:Math.cos(cam.pitch),sp:Math.sin(cam.pitch),
     scale:Math.min((viewportWidth-90)/1840,(viewportHeight-160)/1490)*cam.zoom,
@@ -408,7 +414,7 @@ function rectangleWorld(x,y,w,h,z){return[{x,y,z},{x:x+w,y,z},{x:x+w,y:y-h,z},{x
 function queueSurface(points,fill,stroke,opacity=1,holes=[]){
   if(plateRecording){plateRecording.push({kind:'surface',args:[points,fill,stroke,opacity,holes]});return;}
   const p=points.map(assemblyProject),cutouts=holes.map(h=>h.map(assemblyProject));
-  renderItems.push({kind:'surface',p,cutouts,fill,stroke,opacity,depth:p.reduce((n,v)=>n+v.z,0)/p.length});
+  renderItems.push({kind:'surface',p,cutouts,worldPoints:points,worldHoles:holes,fill,stroke,opacity,depth:p.reduce((n,v)=>n+v.z,0)/p.length});
 }
 function queueLine(a,b,color,width=1,opacity=1,metal=false){
   a=assemblyProject(a);b=assemblyProject(b);
@@ -416,21 +422,19 @@ function queueLine(a,b,color,width=1,opacity=1,metal=false){
 }
 function queuePolyline(points,color,width=1,opacity=1,zOffset=0,highlight=false){
   if(points.length<2)return;
-  // Keep the existing per-segment depth ordering for opaque panels.
-  if(solidControl.checked){
-    for(let i=1;i<points.length;i++)queueLine({...points[i-1],z:points[i-1].z+zOffset},{...points[i],z:points[i].z+zOffset},color,width,opacity);
-    return;
-  }
   // One continuous stroke per fiber, reusing its projected coordinate buffer.
   let xy=points.screenCoordinates;
   if(!xy)xy=points.screenCoordinates=new Float64Array(points.length*2);
+  let xyz=null;
+  if(solidControl.checked)xyz=points.screenDepthCoordinates||=(new Float32Array(points.length*3));
   const c=frameProjection;let depth=0;
   for(let i=0;i<points.length;i++){
     const p=points[i],pz=p.z+zOffset,x=p.x*c.cy+pz*c.sy,z=-p.x*c.sy+pz*c.cy;
     xy[i*2]=c.x+x*c.scale;xy[i*2+1]=c.y-(p.y*c.cp-z*c.sp)*c.scale;
-    depth+=p.y*c.sp+z*c.cp;
+    const pointDepth=p.y*c.sp+z*c.cp;depth+=pointDepth;
+    if(xyz){xyz[i*3]=xy[i*2];xyz[i*3+1]=xy[i*2+1];xyz[i*3+2]=pointDepth;}
   }
-  renderItems.push({kind:'polyline',xy,color,width,opacity,highlight,depth:depth/points.length});
+  renderItems.push({kind:'polyline',xy,xyz,color,width,opacity,highlight,depth:depth/points.length});
 }
 function queueText(point,text,color,size,depthOffset=3){
   if(plateRecording){plateRecording.push({kind:'text',args:[point,text,color,size,depthOffset]});return;}
@@ -527,7 +531,7 @@ function queueWiring(layers){
   if(!showWires.checked&&!c.fid&&!c.rid)return;
   function routeLine(a,b,highlight,color){
     if(!showWires.checked&&!highlight)return;
-    const n=solidControl.checked?10:1;for(let k=0;k<n;k++){
+    const n=1;for(let k=0;k<n;k++){
       const lerp=t=>({x:a.x+(b.x-a.x)*t,y:a.y+(b.y-a.y)*t,z:a.z+(b.z-a.z)*t});
       queueLine(lerp(k/n),lerp((k+1)/n),highlight?'#da8c38':color,highlight?2.5:+lwRange.value*.55,highlight?1:.20);
     }
@@ -573,6 +577,7 @@ function queueFibers(layers){
   }
 }
 function drawRenderItems(){
+  if(solidControl.checked){solidRenderer.render(renderItems);return;}
   renderItems.sort((a,b)=>{
     if(!solidControl.checked){
       const order=renderOrder[a.kind]-renderOrder[b.kind];if(order)return order;
@@ -618,12 +623,16 @@ function drawAssemblyLabels(layers){
   ctx.restore();
 }
 function drawAssembly(){
-  resizeCanvas();prepareAssemblyFrame();ctx.clearRect(0,0,viewportWidth,viewportHeight);renderItems=[];assemblyHits=[];
+  resizeCanvas();
+  if(solidControl.checked&&!ensureSolidRenderer()){
+    solidControl.checked=false;setStatus('当前浏览器无法启用实体遮挡，已切回透视查看。');
+  }
+  prepareAssemblyFrame();ctx.clearRect(0,0,viewportWidth,viewportHeight);renderItems=[];assemblyHits=[];
   const layers=assemblyLayers();
   Object.entries(layers).forEach(([layer,z])=>queuePlate(layer,z));queueFrame(layers);queueFibers(layers);queueWiring(layers);
   if(showPoints.checked){
     if(layers.front!==undefined){Object.values(fronts).forEach(f=>queueNode(f,'front',layers.front));
-      if(showOuter.checked)OUTER_COORDS.forEach(v=>{const p=assemblyProject({x:v[1],y:v[2],z:layers.front+5.238});renderItems.push({kind:'node',p,depth:p.z-.5,r:Math.max(1.4,4.4*p.s),color:'#e38253',ring:true});});}
+      if(showOuter.checked)OUTER_COORDS.forEach(v=>{const p=assemblyProject({x:v[1],y:v[2],z:layers.front+(solidControl.checked?-.12:5.238)});renderItems.push({kind:'node',p,depth:p.z-.5,r:Math.max(1.4,4.4*p.s),color:'#e38253',ring:true});});}
     if(layers.middle!==undefined)Object.values(routes).forEach(r=>queueNode(r,'middle',layers.middle));
     if(layers.back!==undefined)backPorts.forEach(p=>queueNode(p,'back',layers.back));
   }
@@ -640,6 +649,7 @@ function updateAssemblyInfo(){
 function draw(){if(!pendingDraw)pendingDraw=requestAnimationFrame(()=>{pendingDraw=0;drawNow();});}
 function drawNow(){
   if(pendingDraw){cancelAnimationFrame(pendingDraw);pendingDraw=0;}
+  if(solidRenderer)solidRenderer.canvas.hidden=groupMode||viewMode==='2d'||!solidControl.checked;
   stageElement.classList.toggle('mapping',viewMode==='2d');stageElement.classList.toggle('group-view',groupMode);
   if(groupMode)drawGroupView();else if(viewMode==='2d')draw2D();else drawAssembly();
   updateAssemblyInfo();
@@ -650,7 +660,7 @@ function hitTest(mx,my){
   let best=null,bestDistance=Infinity;
   for(const h of assemblyHits){
     const dx=mx-h.p.x,dy=my-h.p.y,d=dx*dx+dy*dy,r=Math.max(6,h.r+3);
-    if(d<r*r&&(d<bestDistance||(d===bestDistance&&h.p.z<best.p.z))){best=h;bestDistance=d;}
+    if(d<r*r&&(d<bestDistance||(d===bestDistance&&h.p.z<best.p.z))&&solidPointVisible(h.p)){best=h;bestDistance=d;}
   }
   return best;
 }
@@ -717,6 +727,153 @@ function openGroupView(){
   guide.innerHTML='点击彩色分组查看主节点与两块 PCB<br>滚轮放大 · 拖动平移 · 各组单元 ID 1–32';setStatus('CAN 分组按参考图划分：26 个主节点，每组两块 PCB，单元 ID 1～32 在各组重复使用；PCB 仅静默监听。');draw();
 }
 
+// Solid mode: real depth testing on the GPU, independent of Canvas paint order.
+let solidRenderer=null,solidUnavailable=false;
+const solidMeshCache=new WeakMap(),solidColorCache=new Map();
+function solidColor(hex){
+  let rgb=solidColorCache.get(hex);
+  if(!rgb){rgb=[parseInt(hex.slice(1,3),16)/255,parseInt(hex.slice(3,5),16)/255,parseInt(hex.slice(5,7),16)/255];solidColorCache.set(hex,rgb);}
+  return rgb;
+}
+function solidSurfaceMesh(points,holes){
+  let triangles=solidMeshCache.get(points);if(triangles)return triangles;
+  triangles=[];
+  if(!holes.length){
+    for(let i=1;i<points.length-1;i++)triangles.push(points[0],points[i],points[i+1]);
+  }else{
+    // All current apertures are centered convex holes in convex planar faces.
+    // Use both contours' corner angles so octagon edges and circle holes stay exact.
+    const hole=holes[0],cx=hole.reduce((s,p)=>s+p.x,0)/hole.length,cy=hole.reduce((s,p)=>s+p.y,0)/hole.length;
+    const angles=[...points,...hole].map(p=>Math.atan2(p.y-cy,p.x-cx)).sort((a,b)=>a-b).filter((a,i,v)=>!i||a-v[i-1]>1e-7);
+    function boundary(poly,a){
+      const dx=Math.cos(a),dy=Math.sin(a);let best=null,distance=Infinity;
+      for(let i=0;i<poly.length;i++){
+        const p=poly[i],q=poly[(i+1)%poly.length],ex=q.x-p.x,ey=q.y-p.y,den=dx*ey-dy*ex;
+        if(Math.abs(den)<1e-9)continue;
+        const ax=p.x-cx,ay=p.y-cy,t=(ax*ey-ay*ex)/den,u=(ax*dy-ay*dx)/den;
+        if(t>=0&&u>=-1e-7&&u<=1+1e-7&&t<distance){distance=t;best={x:cx+dx*t,y:cy+dy*t,z:p.z+(q.z-p.z)*u};}
+      }
+      if(!best)throw Error('Invalid solid aperture contour');return best;
+    }
+    const outer=angles.map(a=>boundary(points,a)),inner=angles.map(a=>boundary(hole,a));
+    for(let i=0;i<angles.length;i++){const j=(i+1)%angles.length;triangles.push(outer[i],outer[j],inner[j],outer[i],inner[j],inner[i]);}
+  }
+  solidMeshCache.set(points,triangles);return triangles;
+}
+function solidOccluder(p,holes){
+  const a=p[0];let plane=null;
+  for(let i=1;i<p.length-1;i++){
+    const b=p[i],c=p[i+1],dx=b.x-a.x,dy=b.y-a.y,ex=c.x-a.x,ey=c.y-a.y,d=dx*ey-dy*ex;
+    if(Math.abs(d)<1e-5)continue;
+    const A=((b.z-a.z)*ey-dy*(c.z-a.z))/d,B=(dx*(c.z-a.z)-(b.z-a.z)*ex)/d;
+    plane={A,B,C:a.z-A*a.x-B*a.y};break;
+  }
+  if(!plane)return null;
+  return{p,holes,...plane,minX:Math.min(...p.map(q=>q.x)),maxX:Math.max(...p.map(q=>q.x)),minY:Math.min(...p.map(q=>q.y)),maxY:Math.max(...p.map(q=>q.y))};
+}
+function solidPointVisible(p){
+  if(!solidControl.checked||!solidRenderer)return true;
+  function inside(poly){let result=false;for(let i=0,j=poly.length-1;i<poly.length;j=i++){
+    const a=poly[i],b=poly[j];if((a.y>p.y)!==(b.y>p.y)&&p.x<(b.x-a.x)*(p.y-a.y)/(b.y-a.y)+a.x)result=!result;
+  }return result;}
+  for(const o of solidRenderer.occluders){
+    if(p.x<o.minX||p.x>o.maxX||p.y<o.minY||p.y>o.maxY)continue;
+    if(o.A*p.x+o.B*p.y+o.C<p.z-.025&&inside(o.p)&&!o.holes.some(inside))return false;
+  }
+  return true;
+}
+function ensureSolidRenderer(){
+  if(solidRenderer)return !solidRenderer.lost;
+  if(solidUnavailable)return false;
+  const surface=document.createElement('canvas');surface.id='solidView';surface.hidden=true;
+  const gl=surface.getContext('webgl2',{alpha:true,antialias:true,premultipliedAlpha:true,preserveDrawingBuffer:true});
+  if(!gl){solidUnavailable=true;return false;}
+  const clip=`uniform vec2 u_view; vec4 clip(vec3 p){return vec4(p.x*2.0/u_view.x-1.0,1.0-p.y*2.0/u_view.y,p.z/8192.0,1.0);}`;
+  function program(vertex,fragment){
+    const p=gl.createProgram();
+    for(const [type,source]of [[gl.VERTEX_SHADER,vertex],[gl.FRAGMENT_SHADER,fragment]]){
+      const s=gl.createShader(type);gl.shaderSource(s,source);gl.compileShader(s);
+      if(!gl.getShaderParameter(s,gl.COMPILE_STATUS))throw Error(gl.getShaderInfoLog(s));gl.attachShader(p,s);gl.deleteShader(s);
+    }
+    gl.linkProgram(p);if(!gl.getProgramParameter(p,gl.LINK_STATUS))throw Error(gl.getProgramInfoLog(p));return p;
+  }
+  const colorFragment=`#version 300 es
+precision highp float;in vec4 color;out vec4 outputColor;void main(){outputColor=vec4(color.rgb*color.a,color.a);}`;
+  try{
+    const meshProgram=program(`#version 300 es
+precision highp float;layout(location=0)in vec3 position;layout(location=1)in vec3 rgb;out vec4 color;${clip}
+void main(){gl_Position=clip(position);color=vec4(rgb,1.0);}`,colorFragment);
+    const lineProgram=program(`#version 300 es
+precision highp float;layout(location=0)in vec2 corner;layout(location=1)in vec3 a;layout(location=2)in vec3 b;layout(location=3)in vec4 rgba;layout(location=4)in float width;out vec4 color;${clip}
+void main(){vec2 d=b.xy-a.xy;float n=max(length(d),0.0001);vec2 normal=vec2(-d.y,d.x)/n;vec3 p=mix(a,b,corner.x);p.xy+=normal*corner.y*width*0.5;gl_Position=clip(p);color=rgba;}`,colorFragment);
+    const nodeProgram=program(`#version 300 es
+precision highp float;layout(location=0)in vec3 position;layout(location=1)in vec3 rgb;layout(location=2)in float radius;layout(location=3)in float ring;uniform float u_dpr;out vec3 color;out float isRing;out float pointRadius;flat out vec3 center;${clip}
+void main(){gl_Position=clip(position);gl_PointSize=2.0*(radius+0.5)*u_dpr;color=rgb;isRing=ring;pointRadius=radius;center=position;}`,`#version 300 es
+precision highp float;in vec3 color;in float isRing;in float pointRadius;flat in vec3 center;uniform vec2 u_view;uniform vec2 u_slope;uniform float u_dpr;uniform float u_facing;out vec4 outputColor;
+void main(){if(abs(u_facing)<0.002)discard;vec2 css=vec2(gl_FragCoord.x/u_dpr,u_view.y-gl_FragCoord.y/u_dpr);gl_FragDepth=(center.z+dot(u_slope,css-center.xy))/16384.0+0.5;float r=length(gl_PointCoord-0.5)*2.0*(pointRadius+0.5);float alpha=1.0-smoothstep(pointRadius-0.35,pointRadius+0.35,r);if(isRing>0.5)alpha*=smoothstep(pointRadius-1.3,pointRadius-0.7,r);if(alpha<0.02)discard;outputColor=vec4(color*alpha,alpha);}`);
+    function stream(stride){return{buffer:gl.createBuffer(),data:new Float32Array(4096*stride),used:0,stride,gpuBytes:0};}
+    const mesh=stream(6),lines=stream(11),rods=stream(11),nodes=stream(8);
+    const lineVao=gl.createVertexArray(),meshVao=gl.createVertexArray(),nodeVao=gl.createVertexArray();
+    const corners=gl.createBuffer();gl.bindVertexArray(lineVao);gl.bindBuffer(gl.ARRAY_BUFFER,corners);
+    gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([0,-1,1,-1,1,1,0,-1,1,1,0,1]),gl.STATIC_DRAW);
+    gl.enableVertexAttribArray(0);gl.vertexAttribPointer(0,2,gl.FLOAT,false,8,0);
+    function attribute(location,size,stride,offset,divisor=0){gl.enableVertexAttribArray(location);gl.vertexAttribPointer(location,size,gl.FLOAT,false,stride*4,offset*4);gl.vertexAttribDivisor(location,divisor);}
+    function reserve(s,n){if(s.used+n>s.data.length){const data=new Float32Array(Math.max(s.data.length*2,s.used+n));data.set(s.data);s.data=data;}}
+    function meshVertex(p,rgb){reserve(mesh,6);const i=mesh.used,d=mesh.data;d[i]=p.x;d[i+1]=p.y;d[i+2]=p.z;d[i+3]=rgb[0];d[i+4]=rgb[1];d[i+5]=rgb[2];mesh.used+=6;}
+    function segment(s,a,b,rgb,alpha,width,bias=0){
+      reserve(s,11);const i=s.used,d=s.data;
+      d[i]=a.x;d[i+1]=a.y;d[i+2]=a.z-bias;d[i+3]=b.x;d[i+4]=b.y;d[i+5]=b.z-bias;
+      d[i+6]=rgb[0];d[i+7]=rgb[1];d[i+8]=rgb[2];d[i+9]=alpha;d[i+10]=width;s.used+=11;
+    }
+    function upload(s){gl.bindBuffer(gl.ARRAY_BUFFER,s.buffer);if(s.gpuBytes<s.data.byteLength){gl.bufferData(gl.ARRAY_BUFFER,s.data.byteLength,gl.DYNAMIC_DRAW);s.gpuBytes=s.data.byteLength;}gl.bufferSubData(gl.ARRAY_BUFFER,0,s.data.subarray(0,s.used));}
+    function use(p){gl.useProgram(p);gl.uniform2f(gl.getUniformLocation(p,'u_view'),viewportWidth,viewportHeight);}
+    function renderLines(s){
+      if(!s.used)return;use(lineProgram);gl.bindVertexArray(lineVao);upload(s);
+      attribute(1,3,11,0,1);attribute(2,3,11,3,1);attribute(3,4,11,6,1);attribute(4,1,11,10,1);
+      gl.drawArraysInstanced(gl.TRIANGLES,0,6,s.used/11);
+    }
+    solidRenderer={canvas:surface,gl,lost:false,occluders:[],stats:{},render(items){
+      if(surface.width!==canvas.width||surface.height!==canvas.height){surface.width=canvas.width;surface.height=canvas.height;}
+      surface.hidden=false;mesh.used=lines.used=rods.used=nodes.used=0;this.occluders=[];const texts=[];
+      for(const item of items){
+        if(item.kind==='surface'){
+          const rgb=solidColor(item.fill);
+          for(const v of solidSurfaceMesh(item.worldPoints,item.worldHoles))meshVertex(assemblyProject(v),rgb);
+          const o=solidOccluder(item.p,item.cutouts);if(o)this.occluders.push(o);
+          for(const contour of [item.p,...item.cutouts])for(let i=0;i<contour.length;i++)segment(lines,contour[i],contour[(i+1)%contour.length],solidColor(item.stroke),1,.65,.03);
+        }else if(item.kind==='line'){
+          segment(item.metal?rods:lines,item.a,item.b,solidColor(item.color),item.metal?1:item.opacity,item.width);
+          if(item.metal)segment(lines,item.a,item.b,solidColor('#e2e9eb'),1,item.width*.35,.04);
+        }else if(item.kind==='polyline'){
+          const d=item.xyz,rgb=solidColor(item.color);
+          for(let i=3;i<d.length;i+=3)segment(lines,{x:d[i-3],y:d[i-2],z:d[i-1]},{x:d[i],y:d[i+1],z:d[i+2]},rgb,item.opacity,item.width);
+        }else if(item.kind==='node'){
+          const rgb=solidColor(item.color);reserve(nodes,8);const i=nodes.used,d=nodes.data;
+          d[i]=item.p.x;d[i+1]=item.p.y;d[i+2]=item.p.z;d[i+3]=rgb[0];d[i+4]=rgb[1];d[i+5]=rgb[2];d[i+6]=item.r;d[i+7]=item.ring?1:0;nodes.used+=8;
+          if(item.selected){reserve(nodes,8);nodes.data.set([item.p.x,item.p.y,item.p.z-.05,...solidColor('#d78f32'),item.r+3.5,1],nodes.used);nodes.used+=8;}
+        }else if(item.kind==='text')texts.push(item);
+      }
+      gl.viewport(0,0,surface.width,surface.height);gl.clearColor(0,0,0,0);gl.clearDepth(1);gl.depthMask(true);
+      gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);gl.enable(gl.DEPTH_TEST);gl.depthFunc(gl.LEQUAL);gl.disable(gl.CULL_FACE);gl.disable(gl.BLEND);
+      use(meshProgram);gl.bindVertexArray(meshVao);upload(mesh);attribute(0,3,6,0);attribute(1,3,6,3);gl.drawArrays(gl.TRIANGLES,0,mesh.used/6);
+      renderLines(rods);
+      gl.enable(gl.BLEND);gl.blendFunc(gl.ONE,gl.ONE_MINUS_SRC_ALPHA);gl.depthMask(false);renderLines(lines);
+      use(nodeProgram);gl.uniform1f(gl.getUniformLocation(nodeProgram,'u_dpr'),canvasPixelRatio);
+      const camera=frameProjection,facing=camera.cp*camera.cy,den=Math.abs(facing)<.002?.002:facing;
+      gl.uniform2f(gl.getUniformLocation(nodeProgram,'u_slope'),-camera.sy/(den*camera.scale),-camera.sp/(camera.cp*camera.scale));
+      gl.uniform1f(gl.getUniformLocation(nodeProgram,'u_facing'),facing);gl.bindVertexArray(nodeVao);upload(nodes);
+      attribute(0,3,8,0);attribute(1,3,8,3);attribute(2,1,8,6);attribute(3,1,8,7);gl.drawArrays(gl.POINTS,0,nodes.used/8);
+      gl.bindVertexArray(null);gl.depthMask(true);
+      ctx.save();for(const item of texts){if(!solidPointVisible(item.p))continue;ctx.fillStyle=item.color;ctx.font=`${item.size}px Segoe UI`;ctx.textAlign='center';ctx.fillText(item.text,item.p.x,item.p.y);}ctx.restore();
+      this.stats={triangles:mesh.used/18,lineSegments:(lines.used+rods.used)/11,nodes:nodes.used/8,drawCalls:3+(rods.used?1:0)};
+    }};
+    surface.addEventListener('webglcontextlost',e=>{e.preventDefault();solidRenderer.lost=true;surface.hidden=true;solidControl.checked=false;draw();setStatus('实体视图暂时不可用，已切回透视查看。');});
+    surface.addEventListener('webglcontextrestored',()=>{surface.remove();solidRenderer=null;solidUnavailable=false;draw();});
+    canvas.parentElement.insertBefore(surface,canvas);return true;
+  }catch(error){solidUnavailable=true;gl.getExtension('WEBGL_lose_context')?.loseContext();return false;}
+}
+
+
 build();registerInnerFrontPoints();buildMainNodes();rebuildRenderIndexes();applyOptimizedFrontMapping();applyOptimizedBackMapping();
 setupFiberOverlay();
 cam={yaw:.98,pitch:.17,zoom:1.06,panX:0,panY:0};
@@ -729,7 +886,7 @@ el('frontBtn').onclick=()=>{if(viewMode==='2d')setViewMode('3d');cam={yaw:0,pitc
 el('sideBtn').onclick=()=>{if(viewMode==='2d')setViewMode('3d');cam={yaw:Math.PI/2,pitch:0,zoom:1,panX:0,panY:0};draw();};
 resetView.onclick=()=>{cam={yaw:.98,pitch:.17,zoom:1.06,panX:0,panY:0};view2d={zoom:1,panX:0,panY:0};draw();};
 el('captureBtn').onclick=()=>{
-  drawNow();const out=document.createElement('canvas');out.width=canvas.width;out.height=canvas.height;const c=out.getContext('2d');c.fillStyle=viewMode==='2d'?'#0b1017':'#eef3f3';c.fillRect(0,0,out.width,out.height);c.drawImage(canvas,0,0);c.setTransform(canvasPixelRatio,0,0,canvasPixelRatio,0,0);c.fillStyle=viewMode==='2d'?'#c5deda':'#38575c';c.font='16px Microsoft YaHei';c.fillText('LAMOST · '+el('sceneTitle').textContent,24,32);c.font='11px Microsoft YaHei';c.fillText(`层间距 ${gap()} mm · 726 路映射 · 装配尺寸参考示意`,24,viewportHeight-20);const a=document.createElement('a');a.download='LAMOST_装配视图.png';a.href=out.toDataURL('image/png');a.click();
+  drawNow();const out=document.createElement('canvas');out.width=canvas.width;out.height=canvas.height;const c=out.getContext('2d');c.fillStyle=viewMode==='2d'?'#0b1017':'#eef3f3';c.fillRect(0,0,out.width,out.height);if(solidRenderer&&!solidRenderer.canvas.hidden)c.drawImage(solidRenderer.canvas,0,0);c.drawImage(canvas,0,0);c.setTransform(canvasPixelRatio,0,0,canvasPixelRatio,0,0);c.fillStyle=viewMode==='2d'?'#c5deda':'#38575c';c.font='16px Microsoft YaHei';c.fillText('LAMOST · '+el('sceneTitle').textContent,24,32);c.font='11px Microsoft YaHei';c.fillText(`层间距 ${gap()} mm · 726 路映射 · 装配尺寸参考示意`,24,viewportHeight-20);const a=document.createElement('a');a.download='LAMOST_装配视图.png';a.href=out.toDataURL('image/png');a.click();
 };
 
 for(const g of MAIN_GROUPS){const option=document.createElement('option');option.value=String(g.main_node);option.textContent=`M${String(g.main_node).padStart(2,'0')} · PCB${g.pcbs[0].pcb} + PCB${g.pcbs[1].pcb}`;el('groupSelect').appendChild(option);}

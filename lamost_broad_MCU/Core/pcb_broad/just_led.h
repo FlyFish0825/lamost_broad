@@ -11,6 +11,9 @@
 #ifndef PCB_ID
 #define PCB_ID 1
 #endif
+#if PCB_ID < 1 || PCB_ID > 52
+#error "PCB_ID must be between 1 and 52"
+#endif
 
 /**
  * @brief LED 引脚及状态结构体
@@ -21,7 +24,7 @@
 typedef struct LED{
     GPIO_TypeDef *port;
     uint16_t pin;
-    uint8_t state;
+    volatile uint8_t state;
 }PCB_Broad_LED;
 
 // 当前 PCB 的外部单元映射表，数组下标对应 USB/LED 编号减 1

@@ -34,6 +34,14 @@ enable_language(C ASM)
 # Create an executable object type
 add_executable(${CMAKE_PROJECT_NAME})
 
+# 板号默认沿用 PCB1；烧录其他板前显式指定 -DPCB_ID=N
+set(PCB_ID "1" CACHE STRING "PCB board number (1-52)")
+if(NOT PCB_ID MATCHES "^[1-9][0-9]*$" OR PCB_ID GREATER 52)
+    message(FATAL_ERROR "PCB_ID must be an integer between 1 and 52")
+endif()
+option(CAN_COMMAND_EXAMPLE_ENABLE "Enable bench-only example LED command protocol" OFF)
+message(STATUS "PCB_ID=${PCB_ID}; CAN example protocol=${CAN_COMMAND_EXAMPLE_ENABLE}")
+
 # Add STM32CubeMX generated sources
 add_subdirectory(cmake/stm32cubemx)
 
@@ -47,6 +55,7 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user sources here
     ${CMAKE_CURRENT_SOURCE_DIR}/Core/pcb_broad/just_led.c
     ${CMAKE_CURRENT_SOURCE_DIR}/Core/pcb_broad/can_rx_buffer.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/Core/pcb_broad/can_command.c
 )
 
 # Add include paths
@@ -58,6 +67,8 @@ target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
 # Add project symbols (macros)
 target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user defined symbols
+    PCB_ID=${PCB_ID}
+    CAN_COMMAND_EXAMPLE_ENABLE=$<BOOL:${CAN_COMMAND_EXAMPLE_ENABLE}>
 )
 
 # Remove wrong libob.a library dependency when using cpp files

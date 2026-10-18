@@ -29,6 +29,7 @@
 #include "just_led.h"
 #include "stdio.h"
 #include "can_rx_buffer.h"
+#include "can_command.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -104,24 +105,15 @@ int main(void)
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
 
-  HAL_TIM_Base_Start_IT(&htim1); // 启动 TIM1 的基本定时器中断
-  HAL_TIM_OC_Start_IT(&htim1,
-                      TIM_CHANNEL_1); // 启动 TIM1 的输出比较中断,使用通道 1
-
-
-  
   CAN_RX_Init(&can_rx, &hcan); // 初始化 CAN 接收环形缓存
+  CAN_Command_Init(HAL_GetTick()); // 先显示板号十位，再显示个位，5秒后结束
 
-  HAL_CAN_Start(&hcan);
-  HAL_CAN_ActivateNotification(&hcan, CAN_IT_RX_FIFO0_MSG_PENDING); // 激活 CAN 接收中断，等待接收消息 
-
-   
-
-    for(int j=0;j<JUST_BOARD_LED_NUMBER;j++)
-    {
-        just_led_control(j, 2); // 设置所有LED为闪烁状态
-    }
-     just_led_control(10, 1); // 设置所有LED为闪烁状态
+  if (HAL_TIM_Base_Start_IT(&htim1) != HAL_OK ||
+      HAL_TIM_OC_Start_IT(&htim1, TIM_CHANNEL_1) != HAL_OK ||
+      HAL_CAN_Start(&hcan) != HAL_OK ||
+      HAL_CAN_ActivateNotification(&hcan, CAN_IT_RX_FIFO0_MSG_PENDING) != HAL_OK) {
+    Error_Handler();
+  }
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -132,6 +124,7 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
     CAN_RX_Process(&can_rx);
+    CAN_Command_Poll(HAL_GetTick()); // 非阻塞计时，显示板号期间仍处理CAN
      
 
 

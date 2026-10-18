@@ -1,4 +1,5 @@
 #include "can_rx_buffer.h"
+#include "can_command.h"
 #include <string.h>
 
 /*
@@ -212,27 +213,14 @@ uint8_t CAN_RX_Read(CAN_RX_Handle_t *rx, CAN_RX_Message_t *msg) {
 /*
  * 主循环调用
 
- * 后续CAN协议解析放这里
+ * 每轮最多处理一圈缓存，给开机板号计时等主循环任务留出执行机会
 
  */
 void CAN_RX_Process(CAN_RX_Handle_t *rx) {
 
   CAN_RX_Message_t msg;
 
-  while (CAN_RX_Read(rx, &msg)) {
-
-    /*
-     *
-     * CAN协议解析区域
-     *
-     *
-     * 示例:
-     *
-     * if(msg.id == 0x100)
-     * {
-     *
-     * }
-     *
-     */
+  for (uint16_t i = 0; i < CAN_RX_BUFFER_SIZE && CAN_RX_Read(rx, &msg); i++) {
+    CAN_Command_Process(&msg);
   }
 }
